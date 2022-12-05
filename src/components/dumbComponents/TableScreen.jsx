@@ -4,9 +4,12 @@ import Footer from "./Footer";
 import pilotito from '../../assets/pilots/pilotito.png'
 import tano from '../../assets/pilots/tano.png'
 import mati from '../../assets/pilots/mati.jpg'
-import ferl from '../../assets/pilots/ferl.png'
+import ferl from '../../assets/pilots/ferlop.png'
 import segundo from '../../assets/pilots/segundo.png'
 import martin from '../../assets/pilots/martin.png'
+import pink from '../../assets/aviones/pink.png'
+import green from '../../assets/aviones/green.png'
+import blue from '../../assets/aviones/blue.png'
 
 const TableScreen = () => {
     const [tandas, setTandas] = useState(() => {
@@ -147,9 +150,36 @@ const TableScreen = () => {
                                                 )
                                             }
                                             <div className="ml-6">
-                                                <p className="text-gray-900 whitespace-no-wrap text-4xl">
-                                                { tanda.avion }
-                                                </p>
+                                                {
+                                                    tanda.avion.toUpperCase() === 'GYC' ? (
+                                                        <div className="flex-shrink-0 w-20 h-20">
+                                                            <img
+                                                            className="w-full h-full"
+                                                            src={pink}
+                                                            alt=""
+                                                            />
+                                                        </div>
+                                                    ) : (
+                                                        tanda.avion.toUpperCase() === 'GRI' ? (
+                                                            <div className="flex-shrink-0 w-20 h-20">
+                                                                <img
+                                                                className="w-full h-full"
+                                                                src={green}
+                                                                alt=""
+                                                                />
+                                                            </div>
+                                                        ) : (
+                                                            <div className="flex-shrink-0 w-20 h-20">
+                                                            <img
+                                                            className="w-full h-full"
+                                                            src={blue}
+                                                            alt=""
+                                                            />
+                                                        </div>
+                                                        )
+
+                                                    )
+                                                }
                                                 <p className="text-gray-600 whitespace-no-wrap text-4xl">{ tanda.altitude }</p>
                                             </div>
                                         </div>

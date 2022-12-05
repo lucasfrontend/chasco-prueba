@@ -166,7 +166,6 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             <option>GRI</option>
                             <option>GYC</option>
                             <option>GSD</option>
-                            <option>IFY</option>
                         </select>
 
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
