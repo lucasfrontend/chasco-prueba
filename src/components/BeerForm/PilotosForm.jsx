@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 
 //sacar initialpilots
 
-const PilotosForm = ({ addPilot, editPilot, editData }) => {
+const DeudoresForm = ({ addDeudor, editDeudor, editData }) => {
 
     const [formData, setFormData] = useState({
         id: null,
-        name_pilot: ''
+        name_deudor: ''
     })
     
     useEffect(() => {
@@ -15,21 +15,21 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
         }else {
             setFormData({
                 id: null,
-                name_pilot: ''
+                name_deudor: ''
             })
         }
     }, [editData])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(editData !== null) {
-            editPilot(formData)
+        if(editDeudor !== null) {
+            editDeudor(formData)
         } else {
             formData.id = Math.random().toString(36).substring(0, 7)
-            addPilot(formData)
+            addDeudor(formData)
             setFormData({
                 id: null,
-                name_pilot: ''
+                name_deudor: ''
             })
         }
     }
@@ -44,7 +44,7 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
     const handleReset =(e) => {
         setFormData({
             id: null,
-            name_pilot: ''
+            name_deudor: ''
         })
     }
 
@@ -55,15 +55,8 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
                     <form className="space-y-4" onSubmit={handleSubmit}>
                         <h4>{formData.id ? 'Editar' : 'Agregar'}</h4>
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <select name="name_pilot" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.name_pilot}>
-                                <option>Pilotos</option>
-                                <option>FER LOPEZ</option>
-                                <option>MARTIN</option>
-                                <option>MATI</option>
-                                <option>PILOTITO</option>
-                                <option>SEGUNDO</option>
-                                <option>TANO</option>
-                            </select>
+                            <input name="name_deudpr" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow" type="number" onChange={handleChange} value={formData.deudor}>
+                            </input>
                         </div>
 
                         <div className="flex justify-end">
@@ -78,4 +71,4 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
 
 }
 
-export default PilotosForm;
+export default DeudoresForm;

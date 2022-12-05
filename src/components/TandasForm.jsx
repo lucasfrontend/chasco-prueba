@@ -114,7 +114,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                                 <input className="bg-dark w-full" type="number" name="number_tanda" min="1" onChange={handleChange} value={formData.number_tanda}/>
                             </div>
                         </div>
-                        <div className="bg-dark  p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="paraca_1" className="pr-2">Plaza</label>
                                 <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
