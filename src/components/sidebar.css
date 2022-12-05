@@ -1,0 +1,52 @@
+.left-side {
+    -webkit-animation: left 1s var(--delay) both;
+            animation: left 1s var(--delay) both;
+  }
+  .left-side svg {
+    width: 24px;
+
+  }
+  
+  @-webkit-keyframes left {
+    0% {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  @keyframes left {
+    0% {
+      transform: translateX(-30px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @-webkit-keyframes top {
+    0% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes top {
+    0% {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  

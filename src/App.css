@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
+
+.logo-sdch {
+    background-image: url('./assets/logo-letras_verdes.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    min-height: 900px;
+    min-width: 900px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    z-index: -0;
+  }
+
+ .chascobg{
+  background-image: url('./assets/chasco-amarillo.png');
+  background-repeat: no-repeat;
+  background-position: center; 
+  min-height: 500px;
+  min-width: 500px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  z-index: -10;
+ }
+
+ .pch {
+    background-image: url('./assets/logo_amarillo.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    position: absolute;
+    min-height: 1500px;
+    min-width: 1500px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    z-index: 10;
+ }
+
+ #eye {
+  width:28px;
+  height:20px;
+  border-radius:50%;
+  background:#ecf0f1;
+  box-shadow:inset 0px 8px 0px #bdc3c7;
+  position:relative;
+  margin:10px auto;
+}
+
+#eye:before
+  {
+    content:"";
+    width:16px;
+    height:16px;
+    background:#34495e;
+    border-radius:50%;
+    position:absolute;
+    left: 5px;
+    top: 2px;
+    box-shadow:inset 5px -8px 0px #2980b9,inset 0px 0px 0px 35px #3498db;
+  }
+
+#eye:after
+  {
+    content:"";
+    width:35px;
+    height:35px;
+    background:#ffffff;
+    border-radius:50%;
+    position:absolute;
+    left: 105px;
+    top: 69px;
+  }
+
