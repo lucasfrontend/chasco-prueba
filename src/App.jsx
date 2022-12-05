@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom'
 import Layout from './components/Layout'
 import TandasMain from './components/TandasMain'
 import Data from './Pages/Data'
@@ -12,7 +12,7 @@ import './App.css'
 function App() {
 
   return (
-      <BrowserRouter>
+      <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path='/home' element={<TandasMain />} /> 
@@ -23,7 +23,7 @@ function App() {
         </Route>
         <Route path='/table' element={<TableScreen />}></Route>
       </Routes>
-      </BrowserRouter>
+      </HashRouter>
   )
 }
 
