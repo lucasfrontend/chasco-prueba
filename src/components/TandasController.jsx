@@ -10,11 +10,13 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
     const btn_ref = useRef(null)
     const colorSelected = () => setColor(visible)
 
+    
+
     return <>
-        <div className="w-screen dark:bg-gray-900 overflow-y-auto p-6">
+        <div className="w-screen dark:bg-gray-900 overflow-y-auto p-4">
             <img src="" alt="" />
             <div class="cards-header flex justify-between">
-                <h3 class="bg-transparent font-semibold py-2 px-4 mr-4">Tandas: { tandas.length }</h3>
+                <h3 class="bg-transparent font-semibold py-2 px-4 mr-2">Tandas: { tandas.length }</h3>
                 <div class="cards-header-date">
                     <div className="container flex">
                         <DownloadTableExcel
@@ -25,20 +27,9 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                         </DownloadTableExcel>  
                         <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" type="submit" value="Fin del dia" onClick={() => endOfDay(tandas)}>Fin del dia</button> 
                     </div>
-                                    {/*
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left">
-                        <path d="M15 18l-6-6 6-6" />
-                    </svg>
-                    <div className="text-right mr-4">
-                    </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-                        <path d="M9 18l6-6-6-6" />
-                    </svg>
-                    <span class="blink"><span class="eye"></span></span>
-                */}
-                <a target='_blank' href={'http://127.0.0.1:5173/table'} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold px-3 border border-gray-400 rounded" >
-                    <div id="eye"></div>
-                </a>
+                    <a target='_blank' href={'/table'} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold px-3 border border-gray-400 rounded" >
+                        <div id="eye"></div>
+                    </a>
                 </div>
             </div>
             <table class="w-full" ref={tableRef}>
@@ -63,6 +54,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                             <th className=" px-5 py-3 text-left font-semibold uppercase">Piloto</th>
                             <th className="w-auto px-5 py-3 text-left font-semibold uppercase">Altura</th>
                             <th className="w-auto px-5 py-3 text-left font-semibold uppercase">Avión</th>
+                            <th className="w-auto px-5 py-3 text-left font-semibold uppercase">Horario</th>
                             <th className="w-20 px-5 py-3 flex cursor-pointer"></th>
                         </tr>
                     </div >
@@ -75,7 +67,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                             tandas.length === 0 ? <td className="flex justify-center text-3xl p-8">Aún  no hay tandas</td>
                             : tandas.sort((a, b) => a.number_tanda - b.number_tanda)
                             .map((tanda, index) => {
-                                return <tr key={index} className=" border border-slate-300">
+                                return <tr key={index} className="border border-slate-300">
                                             <td className="px-5 py-3 text-left font-semibold"> {tanda.number_tanda}</td>
                                             <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</td>
                                             <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_2.charAt(0).toUpperCase() + tanda.paraca_2.slice(1)}</td>
@@ -84,6 +76,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                             <td className=" px-5 py-3 font-semibold "> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</td>
                                             <td className="px-5 py-3 font-semibold "> {tanda.altitude.charAt(0).toUpperCase() + tanda.altitude.slice(1)}</td>
                                             <td className="px-5 py-3 font-semibold "> {tanda.avion.charAt(0).toUpperCase() + tanda.avion.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold "> {tanda.time}</td>
                                             <td className="w-20 px-5 py-3 flex cursor-pointer">
                                                 <div ref={btn_ref} onClick={() => setEditData(tanda)} className="fill-green w-8">
                                                     <svg viewBox="0 0 16 16">

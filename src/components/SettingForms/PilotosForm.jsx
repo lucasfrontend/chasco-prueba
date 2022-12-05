@@ -49,6 +49,43 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
     }
 
     return <>
+        <div className="">
+            <div className="blue_sdch">
+                <div className="activity card">
+                    <form className="space-y-4" onSubmit={handleSubmit}>
+                    <h4>{formData.id ? 'Editar' : 'Agregar'}</h4>
+
+                    {/*
+                        <div className="bg-dark p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                        <div className="flex xl:flex-row flex-col">
+                            <label htmlFor="name_pilot" className="pr-2">Pilot</label>
+                            <input className="bg-dark w-full" type="text" maxlength="23" name="name_pilot" onChange={handleChange} value={formData.name_pilot}/>
+                        </div>
+                        </div>
+                    */}
+
+                        <div className="bg-dark p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                            <select name="name_pilot" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.name_pilot}>
+                                <option>Pilotos</option>
+                                <option>FER LOPEZ</option>
+                                <option>MARTIN</option>
+                                <option>MATI</option>
+                                <option>PILOTITO</option>
+                                <option>SEGUNDO</option>
+                                <option>TANO</option>
+
+                            </select>
+                        </div>
+
+                        <div className="flex justify-end">
+                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" type="submit" value="Agregar"/>
+                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="reset" value="Reset" onClick={handleReset}/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {/*
         <form className="space-y-4 mt-3" onSubmit={handleSubmit}>
             <h4>{formData.id ? 'Editar' : 'Agregar'}</h4>
             <div className="bg-dark p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
@@ -63,6 +100,7 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
             <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="reset" value="Reset" onClick={handleReset} />
             </div>
         </form>
+    */}
     </>
 
 }
