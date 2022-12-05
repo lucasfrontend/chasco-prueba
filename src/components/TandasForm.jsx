@@ -108,7 +108,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             <div className="activity card">
             {formData.id ? <div class="title text-green">Editar Tanda {formData.number_tanda}</div> : <div class="title text-blue">Nueva Tanda {formData.id}</div>}
                 <form className="space-y-3 mt-3" onSubmit={handleSubmit}>
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                        <div className="minwww bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="number_tanda" className="pr-2">Número</label>
                                 <input className="bg-dark w-full" type="number" name="number_tanda" min="1" onChange={handleChange} value={formData.number_tanda}/>
