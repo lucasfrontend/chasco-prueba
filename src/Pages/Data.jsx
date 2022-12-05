@@ -6,7 +6,7 @@ import PilotsChart from "../graficos/PilotsChart";
 const Data = () => {
 
     return <>
-    <div className="bg-dark">
+    <div className="">
         <div className="w-3/12">
             <PilotsChart />
         </div>
