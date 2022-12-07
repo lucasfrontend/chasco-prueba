@@ -22,7 +22,7 @@ const DeudoresForm = ({ addDeudor, editDeudor, editData }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(editDeudor !== null) {
+        if(editData !== null) {
             editDeudor(formData)
         } else {
             formData.id = Math.random().toString(36).substring(0, 7)
@@ -55,7 +55,7 @@ const DeudoresForm = ({ addDeudor, editDeudor, editData }) => {
                     <form className="space-y-4" onSubmit={handleSubmit}>
                         <h4>{formData.id ? 'Editar' : 'Agregar'}</h4>
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <input name="name_deudpr" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow" type="number" onChange={handleChange} value={formData.deudor}>
+                            <input name="name_deudor" type="text" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.name_deudor}>
                             </input>
                         </div>
 

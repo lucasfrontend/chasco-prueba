@@ -5,6 +5,7 @@ import TandasMain from './components/TandasMain'
 import Data from './Pages/Data'
 import Beer from './components/Beer'
 import TableScreen from './components/dumbComponents/TableScreen'
+import BeerTable from './Pages/BeerTable'
 import Page404 from './components/Page404'
 import Setting from './Pages/Setting'
 import './App.css'
@@ -12,7 +13,7 @@ import './App.css'
 function App() {
 
   return (
-      <HashRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route path='/home' element={<TandasMain />} /> 
@@ -22,8 +23,9 @@ function App() {
           <Route path='*' element={<Page404 />} />
         </Route>
         <Route path='/table' element={<TableScreen />}></Route>
+        <Route path='/deudores' element={<BeerTable />}></Route>
       </Routes>
-      </HashRouter>
+    </HashRouter>
   )
 }
 

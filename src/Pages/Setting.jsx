@@ -44,13 +44,16 @@ const Setting = () => {
   }
 
 
-return <>
-      <div className="min-w-full dark:bg-gray-900 overflow-auto p-6 flex">
-          <PilotosForm addPilot={addPilot} editPilot={editPilot} editData={editData} />
-          <PilotosTabla pilots={pilots} setEditData={setEditData} deletePilot={deletePilot}/>
+  return <>
+        <div>
+            <h3 className="pt-8 pl-8 font-semibold text-2xl">Pilotos</h3>
+        </div>
+        <div className="min-w-full dark:bg-gray-900 overflow-auto p-6 flex">
+            <PilotosForm addPilot={addPilot} editPilot={editPilot} editData={editData} />
+            <PilotosTabla pilots={pilots} setEditData={setEditData} deletePilot={deletePilot}/>
         </div>
  
-      </>
+    </>
     
 
 }

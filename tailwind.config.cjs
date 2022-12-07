@@ -25,7 +25,7 @@ module.exports = {
       'black': '#000000',
 
       'header-tandas': '#EEE',
-      'red': '#d14b69',
+      'red': '#ff000035',
       'green': '#1aa385',
       'blue': '#3e4ec2',
       'blue-cards': '#10122b',

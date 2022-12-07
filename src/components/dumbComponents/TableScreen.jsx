@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactScrollableFeed from 'react-scrollable-feed'
+import NavScreen from '../NavScreen'
 import Footer from "./Footer";
 import pilotito from '../../assets/pilots/pilotito.png'
 import tano from '../../assets/pilots/tano.png'
@@ -10,6 +11,7 @@ import martin from '../../assets/pilots/martin.png'
 import pink from '../../assets/aviones/pink.png'
 import green from '../../assets/aviones/green.png'
 import blue from '../../assets/aviones/blue.png'
+import "./arrow.css"
 
 const TableScreen = () => {
     const [tandas, setTandas] = useState(() => {
@@ -28,8 +30,8 @@ const TableScreen = () => {
         })
       }, []);
 
+      console.log(tandas)
     return <>
-        <div className=""></div>
         <div className="p-8" >
             <div>
                 <h2 className="text-2xl font-semibold"></h2>
@@ -40,13 +42,13 @@ const TableScreen = () => {
                     <thead className="">
                     <div className="bg-black ">
                         <tr className="w-full flex justify-between p-4">
-                            <th className="text-3xl px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            <th className="text-4xl px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                 Nro
                             </th>
-                            <th className="text-3xl px-5 py-3 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            <th className="text-4xl px-5 py-3 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                 Paracas
                             </th>
-                            <th className="text-3xl px-5 py-3 border-gray-200 bg-gray-100">
+                            <th className="text-4xl px-5 py-3 border-gray-200 bg-gray-100">
                                 Avión
                             </th>
                         </tr>
@@ -90,7 +92,7 @@ const TableScreen = () => {
                                     </td>
                                     <td className="px-5 py-5 w-45">
                                         <div className="flex">
-                                            {
+                                            {/*
                                                 tanda.pilot.toUpperCase() === 'PILOTITO' ? (
                                                     <div className="flex-shrink-0 w-24 h-24">
                                                         <img
@@ -148,7 +150,7 @@ const TableScreen = () => {
                                                     )
                                                 
                                                 )
-                                            }
+                                            */}
                                             <div className="ml-6">
                                                 {
                                                     tanda.avion.toUpperCase() === 'GYC' ? (
@@ -181,7 +183,21 @@ const TableScreen = () => {
                                                     )
                                                 }
                                                 <p className="text-gray-600 whitespace-no-wrap text-4xl">{ tanda.altitude }</p>
+                                                <p className="text-2xl text-gray-900 whitespace-no-wrap font-extrabold">{ tanda.pilot}</p>
                                             </div>
+                                            {
+                                                    tanda.in_flight === true 
+                                                    ? 
+                                                        (
+                                                            <div class="upload-btn-container">
+                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="36" viewBox="0 0 16 16" version="1.1" >
+                                                                  <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
+                                                                </svg>
+                                                            </div>
+                                                        ) 
+                                                    : 
+                                                        ''
+                                                }
                                         </div>
                                     </td>
                                 </tr> 

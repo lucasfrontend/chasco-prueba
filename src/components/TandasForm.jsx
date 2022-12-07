@@ -7,6 +7,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     const pilots = window.localStorage.getItem('pilotsData');
     let pilot_array = JSON.parse(pilots);
 
+    const [isChecked, setIsChecked] = useState(false);
+
     const [formData, setFormData] = useState({
         id: null,
         number_tanda: '',
@@ -17,11 +19,19 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         pilot: '',
         altitude: '',
         avion: '',
-        time: ''
+        time: '',
+        combus: '',
+        in_flight: ''
     })
     
     useEffect(() => {
         if(editData !== null){
+            console.log("que es edittada", editData)
+            if(editData.in_flight === true) {
+                setIsChecked(true)
+            }else {
+                setIsChecked(false)
+            }
             setFormData(editData);
             changeColorEdit()
         }else {
@@ -35,7 +45,9 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 pilot: '',
                 altitude: '',
                 avion: '',
-                time: ''
+                time: '',
+                combus: '',
+                in_flight: ''
             })
             changeColorOrigin()
         }
@@ -60,7 +72,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(editData !== null) {
-            editTanda(formData)
+            editTanda(formData);
+            setIsChecked(false);
         } else {
             formData.id = Math.random().toString(36).substring(0, 7)
             addTanda(formData)
@@ -74,16 +87,30 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 pilot: '',
                 altitude: '',
                 avion: '',
-                time: ''
-            })
+                time: '',
+                combus: '',
+                in_flight: '',
+            });
+            setIsChecked(false);
+            
+
         }
+        
     }
 
     const handleChange =(e) => {
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
         })
+    }
+
+    const handleChecked =(e) => {
+        setIsChecked(!isChecked)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.checked,
+        });
     }
 
     const handleReset =(e) => {
@@ -97,7 +124,9 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             pilot: '',
             altitude: '',
             avion: '',
-            time: ''
+            time: '',
+            combus: '',
+            in_flight: ''
         })
         changeColorOrigin()
     }
@@ -105,9 +134,17 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     return <>
     <div className="mt-4 ml-4 mb-2">
         <div className="blue_sdch" ref={color}>
-            <div className="activity card">
-            {formData.id ? <div class="title text-green">Editar Tanda {formData.number_tanda}</div> : <div class="title text-blue">Nueva Tanda {formData.id}</div>}
-                <form className="space-y-3 mt-3" onSubmit={handleSubmit}>
+            <div className=" card">
+                <form className="space-y-3" onSubmit={handleSubmit}>
+                    <div className="flex justify-between items-center">
+                        {formData.id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div class="title text-blue">Nueva Tanda {formData.id}</div>}  
+                        <div className="pl-3">
+                            <label htmlFor="in_flight" className="pr-2">Despegó?</label>
+                            <input type="checkbox" name="in_flight" checked={isChecked} onChange={handleChecked} value={formData.in_flight}/>
+                        
+                        </div>                       
+                    </div>
+
                         <div className="minwww bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="number_tanda" className="pr-2">Número</label>
@@ -147,9 +184,9 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             {
                                 pilot_array ? (
                                     pilot_array.length === 0 ? 
-                                    (<option>No hay pilotos cargados</option>) 
+                                    (<option>Aún no hay pilot</option>) 
                                     : pilot_array.map( el => <option key={el.id}>{ el.name_pilot}</option>)
-                                ) : <option>No hay pilotos cargados</option>
+                                ) : <option>Aún no hay pilot</option>
                             } 
                         </select>
 
@@ -172,6 +209,16 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="time" className="pr-2">Horario</label>
                                 <input className="bg-dark w-full" type="time"  name="time" onChange={handleChange} value={formData.time}/>
+                            </div>
+                        </div>
+
+                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                            <div className="flex xl:flex-row flex-col">
+                                <label htmlFor="combus" className="pr-2">Hace Combus?</label>
+                                <select name="combus" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.combus}>
+                                    <option>NO</option>
+                                    <option>SI</option>
+                                </select>
                             </div>
                         </div>
 
