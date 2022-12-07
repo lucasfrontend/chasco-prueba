@@ -38,24 +38,9 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                             <th className=" px-5 py-3 text-left font-semibold uppercase">
                                 Nro
                             </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
-                                -
-                            </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
-                                -
-                            </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
-                                -
-                            </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
-                                -
-                            </th>
-                            <th className=" px-5 py-3 text-left font-semibold uppercase">Piloto</th>
-                            <th className="w-auto px-5 py-3 text-left font-semibold uppercase">Altura</th>
-                            <th className="w-auto px-5 py-3 text-left font-semibold uppercase">Avión</th>
-                            <th className="w-auto px-5 py-3 text-left font-semibold uppercase">Horario</th>
-                            <th className="w-20 px-5 py-3 flex cursor-pointer"></th>
-                            <th className="w-20 px-5 py-3 flex cursor-pointer hidden">hizo combus</th>
+
+
+                            <th className="w-20 px-5 py-3 hidden">hizo combus</th>
                         </tr>
                     </div >
                 </thead>
@@ -168,7 +153,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                                 */}
                                                 
                                             </td>
-                                            <td className="px-5 py-3 text-left font-semibold">
+                                            <td className="px-5 py-3 font-semibold">
                                                 {
                                                     tanda.in_flight === true 
                                                     ? 
