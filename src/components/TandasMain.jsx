@@ -33,7 +33,7 @@ const TandasMain = () => {
     }
 
     const deleteTanda = id => {
-        const isDelete = window.confirm(`Vas a eliminar la tanda ${id}`)
+        const isDelete = window.confirm(`Vas a eliminar la tanda ${id ? id : 'SIN NUMERO'}`)
         if(isDelete) {
             const newTandas = tandas.filter(el => el.id !== id)
             setTandas(newTandas);
