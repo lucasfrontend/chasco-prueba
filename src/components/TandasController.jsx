@@ -38,7 +38,18 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                             <th className=" px-5 py-3 text-left font-semibold uppercase">
                                 Nro
                             </th>
-
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                                -
+                            </th>
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                                -
+                            </th>
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                                -
+                            </th>
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                                -
+                            </th>
 
                             <th className="w-20 px-5 py-3 hidden">hizo combus</th>
                         </tr>
@@ -132,7 +143,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                                         </svg>
                                                     </div>
                                                 </button>
-                                                <button onClick={() => deleteTanda(tanda.number_tanda)} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4"> 
+                                                <button onClick={() => deleteTanda(tanda.id)} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4"> 
                                                     <div className="w-4 cursor-pointer fill-white">
                                                         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                                                             <polyline points="76.91 31.66 76.91 92.53 21.9 92.53 21.9 31.66"/>
