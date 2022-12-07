@@ -133,7 +133,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
 
     return <>
     <div className="mt-4 ml-4 mb-2">
-        <div className="blue_sdch" ref={color}>
+        <div className="bg-lightest" ref={color}>
             <div className=" card">
                 <form className="space-y-3" onSubmit={handleSubmit}>
                     <div className="flex justify-between items-center">

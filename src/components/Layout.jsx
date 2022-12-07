@@ -6,7 +6,7 @@ import Footer from "./dumbComponents/Footer";
 
 const Layout = () => {
     return <>
-        <div className="bg-bermuda dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
+        <div className="bg-white dark:bg-gray-900 dark:text-white text-gray-600 h-screen flex overflow-hidden text-sm">
             <SideBar />
             <div className="flex-grow overflow-hidden h-full flex flex-col">
                 <NavBar />

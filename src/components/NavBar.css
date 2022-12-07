@@ -1,7 +1,7 @@
 
 .header {
-  background: #141834;
-  background: radial-gradient(circle, #141834 0%, #13162f 100%);
+  background: #9b9ca7;
+  background: radial-gradient(circle, #9b9ca7 0%, #9b9ca7 100%);
   box-shadow: 0 16px 12px #0e0e23;
   width: 100%;
   padding: 0 30px;
@@ -9,7 +9,6 @@
           animation: top 1s both;
   display: flex;
   align-items: center;
-  border-radius: 6px;
   font-size: 15px;
   white-space: nowrap;
   position: sticky;
@@ -41,6 +40,6 @@
   margin-right: 14px;
 }
 .header-link.active, .header-link:hover {
-  background: #11132c;
-  border-bottom: 3px solid #4255d4;
+  background: #bebec4;
+  border-bottom: 3px solid #838383;
 }

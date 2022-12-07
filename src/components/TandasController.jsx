@@ -33,7 +33,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
             </div>
             <table class="w-full" ref={tableRef}>
                 <thead className="">
-                    <div className="bg-blue-cards">
+                    <div className="bg-lightest">
                         <tr className="">
                             <th className=" px-5 py-3 text-left font-semibold uppercase">
                                 Nro

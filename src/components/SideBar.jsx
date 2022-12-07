@@ -7,7 +7,7 @@ const NavLink = ({ to, children, ...props}) => {
   return (
     <NavLinkRouterReact 
     { ...props }
-    className={({isActive}) => isActive ? 'text-active bg-darki rounded-l-md' : undefined}
+    className={({isActive}) => isActive ? 'text-active bg-white rounded-l-md' : undefined}
     to={to}
     >{children}
     </NavLinkRouterReact>
@@ -17,7 +17,7 @@ const NavLink = ({ to, children, ...props}) => {
 
 const SideBar = () => {
     return <>
-      <div className="left-side bg-black w-24">
+      <div className="left-side bg-black w-22">
           <div className=" w-20 h-16 text-blue-500 flex items-center justify-center">
             <img src={logo} alt="" />
           </div>
