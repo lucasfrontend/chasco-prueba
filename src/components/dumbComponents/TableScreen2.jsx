@@ -25,7 +25,7 @@ const TableScreen2 = () => {
 
       console.log(tandas)
     return <>
-        <div className="p-8" >
+        <div className="p-4" >
             <div>
                 <h2 className="text-2xl font-semibold"></h2>
                 <div className=""></div>
@@ -59,7 +59,7 @@ const TableScreen2 = () => {
                     </div >
                 </thead>
                 <tbody className="" style={{
-                        height: '80vh'
+                        height: '85vh'
                     }}>
                     <ReactScrollableFeed className="bg-white rounded">
                         {
@@ -94,7 +94,7 @@ const TableScreen2 = () => {
                                                 </p>
                                             </td>
 
-                                            <td className="px-5 py-3 font-semibold flex-col items-center">
+                                            <td className=" font-semibold flex-col items-center">
                                                 {
                                                     tanda.in_flight === true 
                                                     ? 
