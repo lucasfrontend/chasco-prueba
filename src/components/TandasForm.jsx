@@ -140,7 +140,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                         <div className="flex justify-between items-center">
                             {formData.id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div class=" text-white text-2xl">Nueva Tanda {formData.id}</div>}  
                             <div className="pl-3">
-                                <label htmlFor="in_flight" className="pr-1">Despegó?</label>
+                                <label htmlFor="in_flight" className="pr-1 text-white">Despegó?</label>
                                 <input type="checkbox" name="in_flight" checked={isChecked} onChange={handleChecked} value={formData.in_flight}/>
                             
                             </div>                       
