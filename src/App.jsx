@@ -9,6 +9,7 @@ import BeerTable from './Pages/BeerTable'
 import Page404 from './components/Page404'
 import Setting from './Pages/Setting'
 import './App.css'
+import TableScreen2 from './components/dumbComponents/TableScreen2'
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
           <Route path='/setting' element={<Setting />}/>
           <Route path='*' element={<Page404 />} />
         </Route>
-        <Route path='/table' element={<TableScreen />}></Route>
+        <Route path='/table' element={<TableScreen2 />}></Route>
         <Route path='/deudores' element={<BeerTable />}></Route>
       </Routes>
     </HashRouter>

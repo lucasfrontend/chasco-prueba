@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 
 const TandasForm = ({ addTanda, editTanda, editData }) => {
 
-    const color = useRef('bg-light')
+    const color = useRef('bg-blue-light rounded-md')
 
     const pilots = window.localStorage.getItem('pilotsData');
     let pilot_array = JSON.parse(pilots);
@@ -55,16 +55,16 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     
     const changeColorEdit = () => {
         const nodo = color.current
-        if(nodo.className === 'blue_sdch'){
-            nodo.className  = 'blue_sdch_selected';
+        if(nodo.className === 'bg-blue-light rounded-md'){
+            nodo.className  = 'bg-red rounded-md';
         } 
         
     }
 
     const changeColorOrigin = () => {
         const nodo = color.current
-        if(nodo.className === 'blue_sdch_selected'){
-            nodo.className  = 'blue_sdch';
+        if(nodo.className === 'bg-red rounded-md'){
+            nodo.className  = 'bg-blue-light rounded-md';
         } 
         
     }
@@ -133,100 +133,103 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
 
     return <>
     <div className="mt-4 ml-4 mb-2">
-        <div className="bg-lightest" ref={color}>
-            <div className=" card">
-                <form className="space-y-3" onSubmit={handleSubmit}>
-                    <div className="flex justify-between items-center">
-                        {formData.id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div class="title text-blue">Nueva Tanda {formData.id}</div>}  
-                        <div className="pl-3">
-                            <label htmlFor="in_flight" className="pr-2">Despegó?</label>
-                            <input type="checkbox" name="in_flight" checked={isChecked} onChange={handleChecked} value={formData.in_flight}/>
-                        
-                        </div>                       
-                    </div>
+        <div className="">
+            <div className="bg-blue-light rounded-md" ref={color}>
+                <div className="card rounded-md">
+                    <form className="space-y-3" onSubmit={handleSubmit}>
+                        <div className="flex justify-between items-center">
+                            {formData.id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div class=" text-white text-2xl">Nueva Tanda {formData.id}</div>}  
+                            <div className="pl-3">
+                                <label htmlFor="in_flight" className="pr-1">Despegó?</label>
+                                <input type="checkbox" name="in_flight" checked={isChecked} onChange={handleChecked} value={formData.in_flight}/>
+                            
+                            </div>                       
+                        </div>
 
-                        <div className="minwww bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <div className="flex xl:flex-row flex-col">
-                                <label htmlFor="number_tanda" className="pr-2">Número</label>
-                                <input className="bg-dark w-full" type="number" name="number_tanda" min="1" onChange={handleChange} value={formData.number_tanda}/>
+                            <div className="minwww bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <div className="flex xl:flex-row flex-col">
+                                    <label htmlFor="number_tanda" className="pr-2">Número</label>
+                                    <input className="bg-dark w-full" type="number" name="number_tanda" min="1" onChange={handleChange} value={formData.number_tanda}/>
+                                </div>
                             </div>
-                        </div>
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <div className="flex xl:flex-row flex-col">
-                                <label htmlFor="paraca_1" className="pr-2">Plaza</label>
-                                <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
+                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <div className="flex xl:flex-row flex-col">
+                                    <label htmlFor="paraca_1" className="pr-2">Plaza</label>
+                                    <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                        <div className="flex xl:flex-row flex-col">
-                            <label htmlFor="paraca_2" className="pr-2">Plaza</label>
-                            <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_2" onChange={handleChange} value={formData.paraca_2}/>
-                        </div>
-                        </div>
-
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                        <div className="flex xl:flex-row flex-col">
-                            <label htmlFor="paraca_3" className="pr-2">Plaza</label>
-                            <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_3" onChange={handleChange} value={formData.paraca_3}/>
-                        </div>
-                        </div>
-
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
-                                <label htmlFor="paraca_4" className="pr-2">Plaza</label>
-                                <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_4" onChange={handleChange} value={formData.paraca_4}/>
+                                <label htmlFor="paraca_2" className="pr-2">Plaza</label>
+                                <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_2" onChange={handleChange} value={formData.paraca_2}/>
                             </div>
-                        </div>
+                            </div>
 
-                        <select name="pilot" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.pilot}>
-                            <option>Piloto</option>
-                            {
-                                pilot_array ? (
-                                    pilot_array.length === 0 ? 
-                                    (<option>Aún no hay pilot</option>) 
-                                    : pilot_array.map( el => <option key={el.id}>{ el.name_pilot}</option>)
-                                ) : <option>Aún no hay pilot</option>
-                            } 
-                        </select>
-
-                        <select name="altitude" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.altitude}>
-                            <option>Altura</option>
-                            <option>5k</option>
-                            <option>8k</option>
-                            <option>10k</option>
-                            <option>12k</option>
-                        </select>
-
-                        <select name="avion" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.avion}>
-                            <option>Avión</option>
-                            <option>GRI</option>
-                            <option>GYC</option>
-                            <option>GSD</option>
-                        </select>
-
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
-                                <label htmlFor="time" className="pr-2">Horario</label>
-                                <input className="bg-dark w-full" type="time"  name="time" onChange={handleChange} value={formData.time}/>
+                                <label htmlFor="paraca_3" className="pr-2">Plaza</label>
+                                <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_3" onChange={handleChange} value={formData.paraca_3}/>
                             </div>
-                        </div>
-
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <div className="flex xl:flex-row flex-col">
-                                <label htmlFor="combus" className="pr-2">Hace Combus?</label>
-                                <select name="combus" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.combus}>
-                                    <option>NO</option>
-                                    <option>SI</option>
-                                </select>
                             </div>
-                        </div>
 
-                        <div className="flex justify-end">
-                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" type="submit" value="Guardar"/>
-                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="reset" value="Cancelar" onClick={handleReset}/>
-                        </div>
-                </form>
+                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <div className="flex xl:flex-row flex-col">
+                                    <label htmlFor="paraca_4" className="pr-2">Plaza</label>
+                                    <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_4" onChange={handleChange} value={formData.paraca_4}/>
+                                </div>
+                            </div>
+
+                            <select name="pilot" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.pilot}>
+                                <option>Piloto</option>
+                                {
+                                    pilot_array ? (
+                                        pilot_array.length === 0 ? 
+                                        (<option>Aún no hay pilot</option>) 
+                                        : pilot_array.map( el => <option key={el.id}>{ el.name_pilot}</option>)
+                                    ) : <option>Aún no hay pilot</option>
+                                } 
+                            </select>
+
+                            <select name="altitude" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.altitude}>
+                                <option>Altura</option>
+                                <option>5k</option>
+                                <option>8k</option>
+                                <option>10k</option>
+                                <option>12k</option>
+                            </select>
+
+                            <select name="avion" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow" onChange={handleChange} value={formData.avion}>
+                                <option>Avión</option>
+                                <option>GRI</option>
+                                <option>GYC</option>
+                                <option>GSD</option>
+                                <option>IFY</option>
+                            </select>
+
+                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <div className="flex xl:flex-row flex-col">
+                                    <label htmlFor="time" className="pr-2">Horario</label>
+                                    <input className="bg-dark w-full" type="time"  name="time" onChange={handleChange} value={formData.time}/>
+                                </div>
+                            </div>
+
+                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                <div className="flex xl:flex-row flex-col">
+                                    <label htmlFor="combus" className="">Combus?</label>
+                                    <select name="combus" className="bg-dark p-2 w-full" onChange={handleChange} value={formData.combus}>
+                                        <option>NO</option>
+                                        <option>SI</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div className="flex justify-end">
+                                <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" type="submit" value="Guardar"/>
+                                <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow" type="reset" value="Cancelar" onClick={handleReset}/>
+                            </div>
+                    </form>
+                </div>
             </div>
         </div>
 

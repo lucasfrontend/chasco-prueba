@@ -91,7 +91,6 @@ const TableScreen = () => {
                                         <p className="text-3xl text-gray-900 whitespace-no-wrap font-extrabold">{ tanda.time}</p>
                                     </td>
                                     <td className="px-5 py-5 w-45">
-                                        <div className="flex">
                                             {/*
                                                 tanda.pilot.toUpperCase() === 'PILOTITO' ? (
                                                     <div className="flex-shrink-0 w-24 h-24">
@@ -151,53 +150,58 @@ const TableScreen = () => {
                                                 
                                                 )
                                             */}
-                                            <div className="ml-6">
-                                                {
-                                                    tanda.avion.toUpperCase() === 'GYC' ? (
-                                                        <div className="flex-shrink-0 w-20 h-20">
-                                                            <img
-                                                            className="w-full h-full"
-                                                            src={pink}
-                                                            alt=""
-                                                            />
-                                                        </div>
-                                                    ) : (
-                                                        tanda.avion.toUpperCase() === 'GRI' ? (
+                                            <div className="flex items-center">
+                                                <div className="column ">
+                                                    <div className="inline-flex justify-items-end">
+                                                        {
+                                                            tanda.in_flight === true 
+                                                            ? 
+                                                                (
+                                                                    <div class="upload-btn-container">
+                                                                        <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="36" viewBox="0 0 16 16" version="1.1" >
+                                                                        <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
+                                                                        </svg>
+                                                                    </div>
+                                                                ) 
+                                                            : 
+                                                                ''
+                                                        }
+                                                        <p className="text-gray-600 whitespace-no-wrap text-4xl">{ tanda.altitude }</p>
+                                                    </div>
+                                                    <p className="text-2xl text-gray-900 whitespace-no-wrap font-extrabold">{ tanda.pilot}</p>
+                                                </div>
+                                                <div className="ml-8">
+                                                    {
+                                                        tanda.avion.toUpperCase() === 'GYC' ? (
                                                             <div className="flex-shrink-0 w-20 h-20">
                                                                 <img
                                                                 className="w-full h-full"
-                                                                src={green}
+                                                                src={pink}
                                                                 alt=""
                                                                 />
                                                             </div>
                                                         ) : (
-                                                            <div className="flex-shrink-0 w-20 h-20">
-                                                            <img
-                                                            className="w-full h-full"
-                                                            src={blue}
-                                                            alt=""
-                                                            />
-                                                        </div>
-                                                        )
-
-                                                    )
-                                                }
-                                                <p className="text-gray-600 whitespace-no-wrap text-4xl">{ tanda.altitude }</p>
-                                                <p className="text-2xl text-gray-900 whitespace-no-wrap font-extrabold">{ tanda.pilot}</p>
-                                            </div>
-                                            {
-                                                    tanda.in_flight === true 
-                                                    ? 
-                                                        (
-                                                            <div class="upload-btn-container">
-                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="36" viewBox="0 0 16 16" version="1.1" >
-                                                                  <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
-                                                                </svg>
+                                                            tanda.avion.toUpperCase() === 'GRI' ? (
+                                                                <div className="flex-shrink-0 w-20 h-20">
+                                                                    <img
+                                                                    className="w-full h-full"
+                                                                    src={green}
+                                                                    alt=""
+                                                                    />
+                                                                </div>
+                                                            ) : (
+                                                                <div className="flex-shrink-0 w-20 h-20">
+                                                                <img
+                                                                className="w-full h-full"
+                                                                src={blue}
+                                                                alt=""
+                                                                />
                                                             </div>
-                                                        ) 
-                                                    : 
-                                                        ''
-                                                }
+                                                            )
+
+                                                        )
+                                                    }
+                                                </div>
                                         </div>
                                     </td>
                                 </tr> 

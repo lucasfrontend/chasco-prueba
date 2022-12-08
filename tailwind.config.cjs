@@ -30,6 +30,7 @@ module.exports = {
       'blue': '#3e4ec2',
       'blue-cards': '#10122b',
       'blue-light': '#10122b5c',
+      'bg-blue-light2': '#10122b9c',
 
       'verdechasco': '#006732',
       'azulchasco': '',

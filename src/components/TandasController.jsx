@@ -14,7 +14,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
     return <>
         <div className="w-screen dark:bg-gray-900 overflow-y-auto p-4">
             <img src="" alt="" />
-            <div class="cards-header flex justify-between">
+            <div class="cards-header bg-red flex justify-between">
                 <h3 class="bg-transparent font-semibold py-2 px-4 mr-2">Tandas: { tandas.length }</h3>
                 <div class="cards-header-date">
                     <div className="container flex">
@@ -33,7 +33,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
             </div>
             <table class="w-full" ref={tableRef}>
                 <thead className="">
-                    <div className="bg-lightest">
+                    <div className="bg-red">
                         <tr className="">
                             <th className=" px-5 py-3 text-left font-semibold uppercase">
                                 Nro
@@ -50,6 +50,13 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                             <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
                                 -
                             </th>
+
+                            <th className="w-20 px-5 py-3"></th>
+                            <th className="w-20 px-5 py-3"></th>
+                            <th className="w-20 px-5 py-3"></th>
+                            <th className="w-20 px-5 py-3"></th>
+                            <th className="w-20 px-5 py-3"></th>
+                            <th className="w-20 px-5 py-3"></th>
 
                             <th className="w-20 px-5 py-3 hidden">hizo combus</th>
                         </tr>
@@ -112,7 +119,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                                         (
                                                             <div class="">
                                                                 <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 16 16" version="1.1" >
-                                                                  <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
+                                                                  <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#ffff" />
                                                                 </svg>
                                                             </div>
                                                         ) 
@@ -170,8 +177,8 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                                     ? 
                                                         (
                                                             <div class="">
-                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 16 16" version="1.1" >
-                                                                  <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
+                                                                <svg className="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="15" height="20" viewBox="0 0 16 16" version="1.1" >
+                                                                  <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#ffff" />
                                                                 </svg>
                                                             </div>
                                                         ) 

@@ -11,7 +11,7 @@ const NavBar = () => {
             <NavLink to="/" className={({isActive}) => isActive ? 'header-link active': 'header-link text-black'}>
               Home
             </NavLink>
-            <NavLink to="/home" className={({isActive}) => isActive ? 'header-link active': 'header-link'}>
+            <NavLink to="/home" className={({isActive}) => isActive ? 'header-link active': 'header-link text-black'}>
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                 <path d="M10 13a2 2 0 110-4 2 2 0 010 4zm0-2.5a.5.5 0 100 1 .5.5 0 000-1z" />
                 <path d="M20.3 11.8h-8.8a.8.8 0 010-1.6h8.8a.8.8 0 010 1.6zM8.5 11.8H3.7a.8.8 0 010-1.6h4.8a.8.8 0 010 1.6zM15 19a2 2 0 110-4 2 2 0 010 4zm0-2.5a.5.5 0 100 1 .5.5 0 000-1z" />
