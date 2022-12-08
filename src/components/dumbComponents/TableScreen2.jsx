@@ -94,13 +94,13 @@ const TableScreen2 = () => {
                                                 </p>
                                             </td>
 
-                                            <td className=" font-semibold flex-col items-center">
+                                            <td className="font-semibold flex-col">
                                                 {
                                                     tanda.in_flight === true 
                                                     ? 
                                                         (
                                                             <div class="upload-btn-container">
-                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="36" viewBox="0 0 16 16" version="1.1" >
+                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="30" viewBox="0 0 16 16" version="1.1" >
                                                                 <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
                                                                 </svg>
                                                             </div>
@@ -108,8 +108,8 @@ const TableScreen2 = () => {
                                                     : 
                                                         ''
                                                 }
-                                                <div className="text-2xl text-gray-900 whitespace-no-wrap"> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</div>
                                                 <div className="text-2xl text-gray-900 whitespace-no-wrap"> {tanda.altitude.charAt(0).toUpperCase() + tanda.altitude.slice(1)}</div>
+                                                <div className="text-2xl text-gray-900 whitespace-no-wrap"> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</div>
                                             </td>
                                             <td className="flex items-center">
                                             {
