@@ -8,7 +8,7 @@ const PilotosTabla = ({ pilots, setEditData, deletePilot}) => {
             <thead className="">
                 <div className="bg-blue-cards rounded-t ">
                     <tr className="">
-                        <th className="px-5 py-3 text-left font-semibold uppercase ">
+                        <th className="px-5 py-3 text-left font-semibold uppercase text-withe">
                             Pilotos
                         </th>
                         <th className="px-5 py-3 text-left font-semibold uppercase text-withe">Editar / Borrar</th>

@@ -53,7 +53,7 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
             <div className="blue_sdch">
                 <div className="activity card">
                     <form className="space-y-4" onSubmit={handleSubmit}>
-                        <h4>{formData.id ? 'Editar' : 'Agregar'}</h4>
+                        <h4 className="text-withe">{formData.id ? 'Editar' : 'Agregar'}</h4>
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <select name="name_pilot" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-withe" onChange={handleChange} value={formData.name_pilot}>
                                 <option>Pilotos</option>
