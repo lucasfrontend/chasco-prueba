@@ -46,7 +46,7 @@ const Setting = () => {
 
   return <>
         <div>
-            <h3 className="pt-8 pl-8 font-semibold text-2xl">Pilotos</h3>
+            <h3 className="pt-8 pl-8 font-semibold text-2xl text-withe">Pilotos</h3>
         </div>
         <div className="min-w-full dark:bg-gray-900 overflow-auto p-6 flex">
             <PilotosForm addPilot={addPilot} editPilot={editPilot} editData={editData} />
