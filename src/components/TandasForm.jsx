@@ -155,28 +155,28 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                 <div className="flex xl:flex-row flex-col">
                                     <label htmlFor="paraca_1" className="pr-2 text-white">Plaza</label>
-                                    <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
+                                    <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
                                 </div>
                             </div>
 
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="paraca_2" className="pr-2 text-white">Plaza</label>
-                                <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_2" onChange={handleChange} value={formData.paraca_2}/>
+                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_2" onChange={handleChange} value={formData.paraca_2}/>
                             </div>
                             </div>
 
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="paraca_3" className="pr-2 text-white">Plaza</label>
-                                <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_3" onChange={handleChange} value={formData.paraca_3}/>
+                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_3" onChange={handleChange} value={formData.paraca_3}/>
                             </div>
                             </div>
 
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                 <div className="flex xl:flex-row flex-col">
                                     <label htmlFor="paraca_4" className="pr-2 text-white">Plaza</label>
-                                    <input className="bg-dark w-full" type="text" maxlength="23" name="paraca_4" onChange={handleChange} value={formData.paraca_4}/>
+                                    <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_4" onChange={handleChange} value={formData.paraca_4}/>
                                 </div>
                             </div>
 
@@ -210,7 +210,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                 <div className="flex xl:flex-row flex-col">
                                     <label htmlFor="time" className="pr-2 text-white">Horario</label>
-                                    <input className="bg-dark w-full" type="time"  name="time" onChange={handleChange} value={formData.time}/>
+                                    <input className="bg-dark w-full text-white" type="time"  name="time" onChange={handleChange} value={formData.time}/>
                                 </div>
                             </div>
 
