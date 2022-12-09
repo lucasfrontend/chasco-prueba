@@ -15,7 +15,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
         <div className="w-screen dark:bg-gray-900 overflow-y-auto p-4">
             <img src="" alt="" />
             <div class="cards-header bg-red flex justify-between">
-                <h3 class="bg-transparent font-semibold py-2 px-4 mr-2">Tandas: { tandas.length }</h3>
+                <h3 class="bg-transparent font-semibold py-2 px-4 mr-2 text-white">Tandas: { tandas.length }</h3>
                 <div class="cards-header-date">
                     <div className="container flex">
                         <DownloadTableExcel
@@ -35,19 +35,19 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                 <thead className="">
                     <div className="bg-red">
                         <tr className="">
-                            <th className=" px-5 py-3 text-left font-semibold uppercase">
+                            <th className=" px-5 py-3 text-left font-semibold uppercase text-white">
                                 Nro
                             </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase text-white">
                                 -
                             </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase text-white">
                                 -
                             </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase text-white">
                                 -
                             </th>
-                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase">
+                            <th className="w-1/4 px-5 py-3 text-left font-semibold uppercase text-white">
                                 -
                             </th>
 
@@ -67,24 +67,24 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                     }}>
                     <ReactScrollableFeed className="bg-blue-light rounded">
                         {
-                            tandas.length === 0 ? <td className="flex justify-center text-3xl p-8">Aún  no hay tandas</td>
+                            tandas.length === 0 ? <td className="flex justify-center text-3xl p-8 text-white">Aún  no hay tandas</td>
                             : tandas.sort((a, b) => a.number_tanda - b.number_tanda)
                             .map((tanda, index) => {
                                 return tanda.combus === 'SI' ? 
                                 (
                                     <tr key={index} className="border border-slate-300 bg-red">
-                                            <td className="px-5 py-3 text-left font-semibold"> {tanda.number_tanda}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_2.charAt(0).toUpperCase() + tanda.paraca_2.slice(1)}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_3.charAt(0).toUpperCase() + tanda.paraca_3.slice(1)}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_4.charAt(0).toUpperCase() + tanda.paraca_4.slice(1)}</td>
-                                            <td className=" px-5 py-3 font-semibold "> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</td>
-                                            <td className="px-5 py-3 font-semibold "> {tanda.altitude.charAt(0).toUpperCase() + tanda.altitude.slice(1)}</td>
-                                            <td className="px-5 py-3 font-semibold "> {tanda.avion.charAt(0).toUpperCase() + tanda.avion.slice(1)}</td>
-                                            <td className="px-5 py-3 font-semibold "> {tanda.time}</td>
+                                            <td className="px-5 py-3 text-left font-semibold text-white"> {tanda.number_tanda}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_2.charAt(0).toUpperCase() + tanda.paraca_2.slice(1)}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_3.charAt(0).toUpperCase() + tanda.paraca_3.slice(1)}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_4.charAt(0).toUpperCase() + tanda.paraca_4.slice(1)}</td>
+                                            <td className=" px-5 py-3 font-semibold text-white"> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold text-white"> {tanda.altitude.charAt(0).toUpperCase() + tanda.altitude.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold text-white"> {tanda.avion.charAt(0).toUpperCase() + tanda.avion.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold text-white"> {tanda.time}</td>
                                             <td className="px-5 py-3 flex">
                                                 <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4"> 
-                                                    <div ref={btn_ref} onClick={() => setEditData(tanda)} className="w-4 cursor-pointer fill-white">
+                                                    <div ref={btn_ref} onClick={() => setEditData(tanda)} className="w-4 cursor-pointer fill-white ">
                                                         <svg viewBox="0 0 16 16">
                                                             <path class="path1" d="M13.5 0c1.381 0 2.5 1.119 2.5 2.5 0 0.563-0.186 1.082-0.5 1.5l-1 1-3.5-3.5 1-1c0.418-0.314 0.937-0.5 1.5-0.5zM1 11.5l-1 4.5 4.5-1 9.25-9.25-3.5-3.5-9.25 9.25zM11.181 5.681l-7 7-0.862-0.862 7-7 0.862 0.862z"></path>
                                                         </svg>
@@ -112,7 +112,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                                 
                                             </td>
                                             <td className="px-5 py-3 font-semibold hidden"> {tanda.combus} </td>
-                                            <td className="px-5 py-3 text-left font-semibold">
+                                            <td className="px-5 py-3 text-left font-semibold text-white">
                                                 {
                                                     tanda.in_flight === true 
                                                     ? 
@@ -132,18 +132,18 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                 : 
                                 (
                                     <tr key={index} className="border border-slate-300">
-                                            <td className="px-5 py-3 text-left font-semibold"> {tanda.number_tanda}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_2.charAt(0).toUpperCase() + tanda.paraca_2.slice(1)}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_3.charAt(0).toUpperCase() + tanda.paraca_3.slice(1)}</td>
-                                            <td className="w-1/4 px-5 py-3 text-left font-semibold "> {tanda.paraca_4.charAt(0).toUpperCase() + tanda.paraca_4.slice(1)}</td>
-                                            <td className=" px-5 py-3 font-semibold "> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</td>
-                                            <td className="px-5 py-3 font-semibold "> {tanda.altitude.charAt(0).toUpperCase() + tanda.altitude.slice(1)}</td>
-                                            <td className="px-5 py-3 font-semibold "> {tanda.avion.charAt(0).toUpperCase() + tanda.avion.slice(1)}</td>
-                                            <td className="px-5 py-3 font-semibold "> {tanda.time}</td>
+                                            <td className="px-5 py-3 text-left font-semibold text-white"> {tanda.number_tanda}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_2.charAt(0).toUpperCase() + tanda.paraca_2.slice(1)}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_3.charAt(0).toUpperCase() + tanda.paraca_3.slice(1)}</td>
+                                            <td className="w-1/4 px-5 py-3 text-left font-semibold text-white"> {tanda.paraca_4.charAt(0).toUpperCase() + tanda.paraca_4.slice(1)}</td>
+                                            <td className=" px-5 py-3 font-semibold text-white"> {tanda.pilot.charAt(0).toUpperCase() + tanda.pilot.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold text-white"> {tanda.altitude.charAt(0).toUpperCase() + tanda.altitude.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold text-white"> {tanda.avion.charAt(0).toUpperCase() + tanda.avion.slice(1)}</td>
+                                            <td className="px-5 py-3 font-semibold text-white"> {tanda.time}</td>
 
                                             <td className="px-5 py-3 flex">
-                                                <button onClick={() => setEditData(tanda)} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4"> 
+                                                <button onClick={() => setEditData(tanda)} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 "> 
                                                     <div ref={btn_ref} className="w-4 cursor-pointer fill-white">
                                                         <svg viewBox="0 0 16 16">
                                                             <path class="path1" d="M13.5 0c1.381 0 2.5 1.119 2.5 2.5 0 0.563-0.186 1.082-0.5 1.5l-1 1-3.5-3.5 1-1c0.418-0.314 0.937-0.5 1.5-0.5zM1 11.5l-1 4.5 4.5-1 9.25-9.25-3.5-3.5-9.25 9.25zM11.181 5.681l-7 7-0.862-0.862 7-7 0.862 0.862z"></path>
@@ -171,7 +171,7 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                                                 */}
                                                 
                                             </td>
-                                            <td className="px-5 py-3 font-semibold">
+                                            <td className="px-5 py-3 font-semibold text-white">
                                                 {
                                                     tanda.in_flight === true 
                                                     ? 
