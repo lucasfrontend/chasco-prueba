@@ -22,9 +22,9 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                             filename="users table"
                             sheet="users"
                             currentTableRef={tableRef.current}>
-                        <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4"> Export excel </button>
+                        <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white"> Export excel </button>
                         </DownloadTableExcel>  
-                        <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" type="submit" value="Fin del dia" onClick={() => endOfDay(tandas)}>Fin del dia</button> 
+                        <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Fin del dia" onClick={() => endOfDay(tandas)}>Fin del dia</button> 
                     </div>
                     <a target='_blank' href={'#/table'} className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold px-3 border border-gray-400 rounded" >
                         <div id="eye"></div>
