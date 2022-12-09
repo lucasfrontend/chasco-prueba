@@ -18,8 +18,8 @@ const TableRow = ({ el, setEditData, deletePilot }) => {
                     </div>
                 </button>
                 <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" onClick={() => deletePilot(el.id)}> 
-                    <div className="w-4 cursor-pointer ml-4">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <div className="w-4 cursor-pointer ml-4 text-white fill-white">
+                        <svg className="text-white" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                             <polyline points="76.91 31.66 76.91 92.53 21.9 92.53 21.9 31.66"/>
                             <rect x="16.56" y="16.44" width="65.7" height="9.88"/>
                             <line x1="34.01" y1="40.69" x2="34.01" y2="81.02"/>
