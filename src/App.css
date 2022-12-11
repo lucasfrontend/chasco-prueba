@@ -1,6 +1,14 @@
 
+.bg-login {
+  background-repeat: no-repeat;
 
+}
 
+.bg-login-screen {
+  background-image: url('./assets/logo_login.svg');
+  background-repeat: no-repeat;
+  background-position: top;
+}
 .logo-sdch {
     background-image: url('./assets/logo-letras_verdes.png');
     background-repeat: no-repeat;

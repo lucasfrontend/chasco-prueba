@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes, HashRouter } from 'react-router-dom'
+import { Route, Routes, HashRouter } from 'react-router-dom'
 import Layout from './components/Layout'
 import TandasMain from './components/TandasMain'
 import Data from './Pages/Data'
@@ -11,23 +11,55 @@ import './App.css'
 import TableScreen2 from './components/dumbComponents/TableScreen2'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { Login } from './auth/Login'
+import { Register } from './auth/Register'
+import { AuthProvider} from './context/authContext'
+import Spash from './Pages/splash'
+import { ProtectedRoute } from './auth/protectedRoutes'
+//borrar?
+import './firebase'
 
 function App() {
 
   return (
     <HashRouter>
+      <AuthProvider>
         <Routes>
-          <Route path='/' element={<Layout />}>
-            <Route path='/home' element={<TandasMain />} /> 
-            <Route path='/data' element={<Data />}/>
-            <Route path='/beer' element={<Beer />}/>
-            <Route path='/setting' element={<Setting />}/>
+          <Route path='/' element={
+            <ProtectedRoute>
+              <Layout />
+            </ProtectedRoute>
+          }>
+          <Route path='/home' element={
+            <ProtectedRoute>
+              <TandasMain />
+            </ProtectedRoute>
+          } /> 
+          <Route path='/data' element={
+            <ProtectedRoute>
+              <Data />
+            </ProtectedRoute>
+          }/>
+          <Route path='/beer' element={
+            <ProtectedRoute>
+              <Beer />
+            </ProtectedRoute>
+          }/>
+          <Route path='/setting' element={
+            <ProtectedRoute>
+              <Setting />
+            </ProtectedRoute>
+          }/>
             <Route path='*' element={<Page404 />} />
           </Route>
           <Route path='/table' element={<TableScreen2 />}></Route>
           <Route path='/deudores' element={<BeerTable />}></Route>
+          <Route path='/sdch' element={<Spash />}></Route>
+          <Route path='/login' element={<Login />} /> 
+          <Route path='/register' element={<Register />} /> 
         </Routes>
         <ToastContainer/>
+      </AuthProvider>
     </HashRouter>
   )
 }

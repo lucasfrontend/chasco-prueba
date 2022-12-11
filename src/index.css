@@ -11,7 +11,9 @@
   
   html {
     height:100%;
-    background-image: linear-gradient(to right top, #e3c45e 0%, #057a9d 100%);
+  
+    background-image: linear-gradient(to right top, #e7e7e7 0%, #057a9d 100%);
+    
   }
   body {
     font-family: var(--font-family);
