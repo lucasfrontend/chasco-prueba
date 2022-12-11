@@ -181,11 +181,11 @@ const TableScreen = () => {
                                                                 />
                                                             </div>
                                                         ) : (
-                                                            tanda.avion.toUpperCase() === 'GRI' ? (
+                                                            tanda.avion.toUpperCase() === 'GSD' ? (
                                                                 <div className="flex-shrink-0 w-20 h-20">
                                                                     <img
                                                                     className="w-full h-full"
-                                                                    src={green}
+                                                                    src={blue}
                                                                     alt=""
                                                                     />
                                                                 </div>
@@ -193,8 +193,8 @@ const TableScreen = () => {
                                                                 <div className="flex-shrink-0 w-20 h-20">
                                                                 <img
                                                                 className="w-full h-full"
-                                                                src={blue}
-                                                                alt=""
+                                                                
+                                                                alt="IFY"
                                                                 />
                                                             </div>
                                                             )

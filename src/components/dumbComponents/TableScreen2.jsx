@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import pink from '../../assets/aviones/pink.png'
 import green from '../../assets/aviones/green.png'
 import blue from '../../assets/aviones/blue.png'
+import ify from '../../assets/aviones/ify.png'
 import "./arrow.css"
 
 const TableScreen2 = () => {
@@ -114,7 +115,7 @@ const TableScreen2 = () => {
                                             <td className="flex items-center">
                                             {
                                                 tanda.avion.toUpperCase() === 'GYC' ? (
-                                                    <div className="pt-4 pr-4 justify-center w-20 h-20">
+                                                    <div className="flex-shrink-0 w-20 h-20">
                                                         <img
                                                         className="w-full h-full"
                                                         src={pink}
@@ -122,33 +123,35 @@ const TableScreen2 = () => {
                                                         />
                                                     </div>
                                                 ) : (
-                                                    tanda.avion.toUpperCase() === 'GRI' ? (
-                                                        <div className="pt-4 pr-4 justify-center w-20 h-20">
-                                                            <img
-                                                            className="w-full h-full"
-                                                            src={green}
-                                                            alt=""
-                                                            />
-                                                        </div>
-                                                    ) : (tandas.avion === 'IFY' ?
-                                                    (
-                                                        <div className="pt-4 pr-4 justify-center w-20 h-20">
-                                                        <img
-                                                        className="w-full h-full"
-                                                        src={blue}
-                                                        alt=""
-                                                        />
-                                                    </div>
-                                                    ) : 
-                                                    <div className="pt-4 pr-4 justify-center w-20 h-20">
-                                                    <img
-                                                    className="w-full h-full"
-                                                    
-                                                    alt="IFY"
-                                                    />
-                                                </div>)
+                                                        tanda.avion.toUpperCase() === 'GRI' ? (
+                                                            <div className="flex-shrink-0 w-20 h-20">
+                                                                <img
+                                                                className="w-full h-full"
+                                                                src={green}
+                                                                alt=""
+                                                                />
+                                                            </div>
+                                                        ) : (
+                                                            tanda.avion.toUpperCase() === 'GSD' ? (
+                                                                <div className="flex-shrink-0 w-20 h-20">
+                                                                    <img
+                                                                    className="w-full h-full"
+                                                                    src={blue}
+                                                                    alt=""
+                                                                    />
+                                                                </div>
+                                                            ) : (
+                                                                <div className="flex-shrink-0 w-20 h-20">
+                                                                <img
+                                                                className="w-full h-full"
+                                                                
+                                                                alt="IFY"
+                                                                />
+                                                            </div>
+                                                            )
+                                                        )
 
-                                                )
+                                                    )
                                             }
                                             </td>
                                     </tr>

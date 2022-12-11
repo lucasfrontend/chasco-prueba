@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import TandasForm from "./TandasForm";
 import TandasController from "./TandasController";
+import { toast } from 'react-toastify';
 
 const TandasMain = () => {
     const [editData, setEditData] = useState(null);
@@ -37,16 +38,38 @@ const TandasMain = () => {
         if(isDelete) {
             const newTandas = tandas.filter(el => el.id !== id)
             setTandas(newTandas);
+            toast("Tanda ELIMINADA", {
+                type: "error",
+                autoClose: 2000,
+                position:"top-right",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            });
         //error aca????
             setEditData(null)
         }
+
     }
     const endOfDay = () => {
         const confirmed = window.confirm("Vas a borrar todas las tandas.");
-    
         if (confirmed) {
             window.localStorage.clear();
             window.location.reload(true);
+            toast("Tandas ELIMINADAS de la memoria del navegador", {
+                type: "error",
+                autoClose: 2000,
+                position:"top-right",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored"
+            });
         }
     }
 

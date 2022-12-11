@@ -1,4 +1,5 @@
 import React from "react";
+import { BeerCount } from "../DeudoresForm/BeerCount";
 
 const DeudorRow = ({ el, setEditData, deletePilot }) => {
 
@@ -6,9 +7,7 @@ const DeudorRow = ({ el, setEditData, deletePilot }) => {
         <tr className=" flex justify-between border border-slate-300">
             <td className="px-5 py-3 text-left font-semibold">{ el.name_deudor.toUpperCase()}</td>
             <td className="px-5 py-3 text-left font-semibold">
-                <button>-</button>
-                <div>{el.beers}</div>
-                <button>+</button>
+            <BeerCount/>
 
             </td>
             <td className=" px-5 py-3 flex cursor-pointer">
@@ -26,7 +25,6 @@ const DeudorRow = ({ el, setEditData, deletePilot }) => {
                         <line x1="64.8" y1="40.69" x2="64.8" y2="81.02"/>
                         <path d="M37.25,16.44V12.31h0a5.14,5.14,0,0,1,4.83-5.4H56.73a5.14,5.14,0,0,1,4.83,5.4v4.13"/>
                     </svg>
-                    
                 </div>
             </td>
 

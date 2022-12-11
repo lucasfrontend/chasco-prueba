@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DeudoresForm from "./DeudoresForm/DeudoresForm";
-import PilotosTabla from "./DeudoresForm/DeudoresTabla";
+import DeudoresTabla from "./DeudoresForm/DeudoresTabla";
 import '../Pages/setting.css'
 
 const BeerController = () => {
@@ -46,15 +46,15 @@ const BeerController = () => {
 
 return <>
     <div>
-        <h3 className="pt-8 pl-8 font-semibold text-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quae dolore ad ipsum molestiae culpa laudantium natus minima officiis unde quidem exercitationem ratione doloribus, est asperiores sit. Ad, aspernatur nisi.</h3>
+        <h3 className="pt-8 pl-8 font-semibold text-2xl">Formulario deudores de cerveza</h3>
     </div>
-    {/*
+
       <div className="min-w-full dark:bg-gray-900 overflow-auto p-6 flex">
           <DeudoresForm addDeudor={addDeudor} editDeudor={editDeudor} editData={editData} />
-          <PilotosTabla deudores={deudores} setEditData={setEditData} deleteDeudor={deleteDeudor}/>
+          <DeudoresTabla deudores={deudores} setEditData={setEditData} deleteDeudor={deleteDeudor}/>
         </div>
     
-    */}
+ 
       </>
     
 

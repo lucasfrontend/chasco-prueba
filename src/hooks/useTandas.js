@@ -1,3 +1,4 @@
+import { normalize } from 'path';
 import { useState, useEffect} from 'react'
 
 export function useTandas(){

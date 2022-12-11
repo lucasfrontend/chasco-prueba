@@ -86,3 +86,14 @@
   max-width: 45px;
   max-height: 45px;
 }
+
+.filter-form:hover {
+  color: orange;
+  cursor: pointer;
+  filter: blur(1px);
+  transition:all 1.05s ease-in-out;    
+}
+.filter-form{
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);                
+}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { toast } from 'react-toastify';
 
 const TandasForm = ({ addTanda, editTanda, editData }) => {
 
@@ -73,6 +74,17 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         e.preventDefault();
         if(editData !== null) {
             editTanda(formData);
+            toast("Tanda editada", {
+                type: "info",
+                autoClose: 2000,
+                position:"top-right",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light"
+            });
             setIsChecked(false);
         } else {
             formData.id = Math.random().toString(36).substring(0, 7)
@@ -90,6 +102,17 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 time: '',
                 combus: '',
                 in_flight: '',
+            });
+            toast("Tanda agregada", {
+                type: "success",
+                autoClose: 2000,
+                position:"top-right",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light"
             });
             setIsChecked(false);
             
