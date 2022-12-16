@@ -21,7 +21,7 @@ const PilotosTabla = ({ pilots, setEditData, deletePilot}) => {
                 <div className="bg-blue-light rounded-b">
                     {
                         pilots.length === 0 ? 
-                        (<tr><td className="table-auto p-4 text-withe"><h1>Que Pilot vuela hoy?</h1></td></tr>) 
+                        (<tr><td className="table-auto p-4 text-white"><h1>Que Pilot vuela hoy?</h1></td></tr>) 
                         : pilots.map( el => <TableRow key={el.id} el={el} setEditData={setEditData} deletePilot={deletePilot}/>)
                     }
                 </div >

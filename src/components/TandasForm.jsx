@@ -202,29 +202,29 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             </div>
 
                             <select name="pilot" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.pilot}>
-                                <option>Piloto</option>
+                                <option className="text-white">Piloto</option>
                                 {
                                     pilot_array ? (
                                         pilot_array.length === 0 ? 
-                                        (<option>Aún no hay pilot</option>) 
+                                        (<option className="text-white">Aún no hay pilot</option>) 
                                         : pilot_array.map( el => <option key={el.id}>{ el.name_pilot}</option>)
-                                    ) : <option>Aún no hay pilot</option>
+                                    ) : <option className="text-white">Aún no hay pilot</option>
                                 } 
                             </select>
 
                             <select name="altitude" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.altitude}>
-                                <option>Altura</option>
-                                <option>5k</option>
-                                <option>8k</option>
-                                <option>10k</option>
-                                <option>12k</option>
+                                <option className="text-white">Altura</option>
+                                <option className="text-white">5k</option>
+                                <option className="text-white">8k</option>
+                                <option className="text-white">10k</option>
+                                <option className="text-white">12k</option>
                             </select>
 
                             <select name="avion" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.avion}>
-                                <option>Avión</option>
-                                <option>GRI</option>
-                                <option>GYC</option>
-                                <option>GSD</option>
+                                <option className="text-white">Avión</option>
+                                <option className="text-white">GRI</option>
+                                <option className="text-white">GYC</option>
+                                <option className="text-white">GSD</option>
                             </select>
 
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
@@ -238,8 +238,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                                 <div className="flex xl:flex-row flex-col">
                                     <label htmlFor="combus" className="text-white">Combus?</label>
                                     <select name="combus" className="bg-dark p-2 w-full text-white" onChange={handleChange} value={formData.combus}>
-                                        <option>NO</option>
-                                        <option>SI</option>
+                                        <option className="text-white">NO</option>
+                                        <option className="text-white">SI</option>
                                     </select>
                                 </div>
                             </div>
