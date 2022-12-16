@@ -6,7 +6,7 @@ const TableRow = ({ el, setEditData, deletePilot }) => {
     console.log("el id es" + el.id)
     return <>
         <tr className=" flex justify-between border border-slate-300">
-            <td className="px-5 py-3 text-left font-semibold">{ el.name_pilot.toUpperCase()}</td>
+            <td className="px-5 py-3 text-left font-semibold text-white">{ el.name_pilot.toUpperCase()}</td>
 
 
             <td className=" px-5 py-3 flex cursor-pointer">
@@ -17,7 +17,7 @@ const TableRow = ({ el, setEditData, deletePilot }) => {
                         </svg>
                     </div>
                 </button>
-                <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4" onClick={() => deletePilot(el.id)}> 
+                <button className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-whitegu" onClick={() => deletePilot(el.id)}> 
                     <div className="w-4 cursor-pointer ml-4 text-white fill-white">
                         <svg className="text-white" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                             <polyline points="76.91 31.66 76.91 92.53 21.9 92.53 21.9 31.66"/>
