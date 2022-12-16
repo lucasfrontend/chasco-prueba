@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import TandasForm from "./TandasForm";
 import TandasController from "./TandasController";
 import { toast } from 'react-toastify';
+import { db } from '../firebase'
 
 const TandasMain = () => {
     const [editData, setEditData] = useState(null);
@@ -24,6 +25,7 @@ const TandasMain = () => {
             ...tandas,
             tanda
         ])
+        db.collection('tandas').doc().set(tandas)
     }
 
     const editTanda = (tanda) => {
@@ -75,7 +77,7 @@ const TandasMain = () => {
 
     return <>
     <div className="chascobg"></div>
-        <div className="flex-grow flex min-h-full">
+        <div className="flex flex-wrap mt-4">
             <TandasForm addTanda={addTanda} editTanda={editTanda} editData={editData} />
             <TandasController tandas={tandas} setEditData={setEditData} endOfDay={endOfDay} deleteTanda={deleteTanda} />
         </div>

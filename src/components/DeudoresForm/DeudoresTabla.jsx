@@ -1,8 +1,26 @@
 import React from "react";
 import DeudorRow from "../dumbComponents/DeudorRow";
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const DeudoresTabla = ({ deudores, setEditData, deleteDeudor}) => {
+
+    const [ debtors, setdebtors ] = useState()
+    const [ loading, setLoading] = useState(true)
+
+    useEffect(() => {
+
+        const db = getFirestore()
+        const queryCollection = collection(db, 'skydivers')
+        const queryFiltered = query(queryCollection, where( 'beers', '>' , 0))
+        getDocs(queryFiltered)
+        .then(data => setdebtors(data.docs.map(paraca => ({ id: paraca.id, ...paraca.data()}) ) ) )
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false))
+    }, [])
  
+    console.log("debtors", debtors)
     return <>
         <table class="ml-4">
             <thead className="">

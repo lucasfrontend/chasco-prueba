@@ -18,6 +18,7 @@ const NavBar = () => {
   
     if(loading) return <h1>Loading</h1>
     return <>
+          
           <div className="header mb-2">
             <NavLink to="/" className={({isActive}) => isActive ? 'header-link active': 'header-link text-black'}>
               Home

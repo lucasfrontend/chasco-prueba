@@ -33,7 +33,7 @@ module.exports = {
       'bg-blue-light2': '#10122b9c',
 
       'verdechasco': '#006732',
-      'azulchasco': '',
+      'celestef': '20f9d4',
       'rojochasco': ''
     },
     extend: {},

@@ -25,9 +25,15 @@ export function Login(){
             await login(user.email, user.password)
             navigate('/')
         } catch (error){
-            console.log("no veooo")
-            console.log(error.code, "codigo de error", error)
-            setError(error.message)
+            console.log(error.code, "mensaje a comp")
+            if(error.code === 'auth/invalid-email'){
+                setError(error.message = 'Correo invalido')
+            } else if (error.code === 'auth/wrong-password'){
+                setError(error.message = 'Password incorrecto')
+            }else{
+                setError(error.message)
+
+            }
             toast(error.message, {
                 type: "info",
                 autoClose: 2000,
@@ -49,7 +55,7 @@ export function Login(){
             navigate('/')
         } catch (error) {
             setError(error.message)
-            toast(error.message, {
+            toast("Todavía no lo conecté a gugulll", {
                 type: "info",
                 autoClose: 2000,
                 position:"top-right",
@@ -66,7 +72,7 @@ export function Login(){
     //funcionalidad incompleta
     const handleResetPass = async () => {
         if(!user.email){
-            setError('Por favor ingresá una casilla')
+            setError('')
             toast('Por favor ingresá una casilla', {
                 type: "info",
                 autoClose: 2000,

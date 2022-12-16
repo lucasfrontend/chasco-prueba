@@ -88,7 +88,18 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             setIsChecked(false);
         } else {
             formData.id = Math.random().toString(36).substring(0, 7)
-            addTanda(formData)
+            addTanda(formData);
+            toast("Tanda agregada", {
+                type: "info",
+                autoClose: 2000,
+                position:"top-right",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light"
+            });
             setFormData({
                 id: null,
                 number_tanda: '',
@@ -103,20 +114,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 combus: '',
                 in_flight: '',
             });
-            toast("Tanda agregada", {
-                type: "success",
-                autoClose: 2000,
-                position:"top-right",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light"
-            });
             setIsChecked(false);
-            
-
         }
         
     }
@@ -155,7 +153,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     }
 
     return <>
-    <div className="mt-4 ml-4 mb-2">
+    <div className="w-full lg:w-3/12 py-2 pl-4 pr-2 scroll-auto">
         <div className="">
             <div className="bg-blue-light rounded-md" ref={color}>
                 <div className="card rounded-md">
@@ -227,7 +225,6 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                                 <option>GRI</option>
                                 <option>GYC</option>
                                 <option>GSD</option>
-                                <option>IFY</option>
                             </select>
 
                             <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
