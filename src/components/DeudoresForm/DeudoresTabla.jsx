@@ -26,10 +26,10 @@ const DeudoresTabla = ({ deudores, setEditData, deleteDeudor}) => {
             <thead className="">
                 <div className="bg-blue-cards rounded-t ">
                     <tr className="">
-                        <th className="px-5 py-3 text-left font-semibold uppercase ">
+                        <th className="px-5 py-3 text-left font-semibold uppercase text-white">
                             Deudores
                         </th>
-                        <th className="px-5 py-3 text-left font-semibold uppercase">Editar / Borrar</th>
+                        <th className="px-5 py-3 text-left font-semibold uppercase text-white">Editar / Borrar</th>
                     </tr>
                 </div >
             </thead>
@@ -39,7 +39,7 @@ const DeudoresTabla = ({ deudores, setEditData, deleteDeudor}) => {
                 <div className="bg-blue-light rounded-b">
                     {
                         deudores.length === 0 ? 
-                        (<tr><td className="table-auto p-4"><h1>Quien paga birra?</h1></td></tr>) 
+                        (<tr><td className="table-auto p-4"><h1 className="text-white">Quien paga birra?</h1></td></tr>) 
                         : deudores.map( el => <DeudorRow key={el.id} el={el} setEditData={setEditData} deleteDeudor={deleteDeudor}/>)
                     }
                 </div >

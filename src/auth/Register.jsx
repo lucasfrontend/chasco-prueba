@@ -35,9 +35,11 @@ export function Register(){
             <br />
             <br />
             <h3>holi</h3>
-        { error ? <h3>{error}</h3> : '' }
+            <h3>holi</h3>
+            <h3>culo</h3>
+        { error ? <h3 className="text-white">{error}</h3> : '' }
         <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className="text-white">Email</label>
             <input type="email" name="email" placeholder="tu mail" className="text-black" onChange={handleChange}/>
 
             <label htmlFor="password">Password</label>
