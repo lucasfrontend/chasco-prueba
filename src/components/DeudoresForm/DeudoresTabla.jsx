@@ -36,10 +36,10 @@ const DeudoresTabla = ({ deudores, setEditData, deleteDeudor}) => {
             <tbody className="" style={{
                     height: '65vh'
                 }}>
-                <div className="bg-blue-light rounded-b">
+                <div className="bg-blue-light rounded-b text-white">
                     {
                         deudores.length === 0 ? 
-                        (<tr><td className="table-auto p-4"><h1 className="text-white">Quien paga birra?</h1></td></tr>) 
+                        (<tr><td className="table-auto p-4 text-white"><h1 className="text-white">Quien paga birra?</h1></td></tr>) 
                         : deudores.map( el => <DeudorRow key={el.id} el={el} setEditData={setEditData} deleteDeudor={deleteDeudor}/>)
                     }
                 </div >

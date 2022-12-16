@@ -5,7 +5,7 @@ const DeudorRow = ({ el, setEditData, deletePilot }) => {
 
     return <>
         <tr className=" flex justify-between border border-slate-300">
-            <td className="px-5 py-3 text-left font-semibold">{ el.name_deudor.toUpperCase()}</td>
+            <td className="px-5 py-3 text-left font-semibold text-white">{ el.name_deudor.toUpperCase()}</td>
             <td className="px-5 py-3 text-left font-semibold">
             <BeerCount/>
 
