@@ -2,20 +2,30 @@ import { React, useState}  from "react"
 import { useAuth } from '../context/authContext'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
+import Spinner from "../components/spinner";
 
 export function Login(){
     const [ user, setUser ] = useState({
         email: '',
         password: ''
     })
+    const [loading, setLoading] = useState(false);
 
     const { login, loginWithGoogle, resetPassword } = useAuth()
     const navigate = useNavigate()
     const [error, setError] = useState()
 
+
     const handleChange = ({target: {name, value}}) => {
         setUser({...user, [name]: value})
 
+    }
+    const showSpinner = () => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+            navigate('/welcome')
+        }, 5000);
     }
 
     const handleSubmit = async (e) => {
@@ -23,7 +33,7 @@ export function Login(){
         setError('')
         try{
             await login(user.email, user.password)
-            navigate('/')
+            showSpinner();
         } catch (error){
             console.log(error.code, "mensaje a comp")
             if(error.code === 'auth/invalid-email'){
@@ -93,22 +103,11 @@ export function Login(){
         } 
     }
 
+ 
+
     return <>
-    {/*
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <input type="email" name="email" placeholder="tu mail" classNameName="text-black" onChange={handleChange}/>
-
-            <label htmlFor="password">Password</label>
-            <input type="password" name="password" placeholder="******" classNameName="text-black" onChange={handleChange}/>
-        </form>
-    
-    */}
-
-
-
-
-        <div className="bg-login h-screen overflow-hidden flex items-center justify-center">
+        { loading ? <Spinner/> : ''}
+        <div className="bg-login bg-sky min-h-screen overflow-hidden flex items-center justify-center">
             <div className="w-10/12 lg:w-9/12 xl:w-7/12 flex">
                 <div className="bg-login-screen w-full h-auto hidden lg:block lg:w-1/2 bg-cover rounded-lg lg:rounded-r-none blue-light bg-blue-light">
 
@@ -120,13 +119,13 @@ export function Login(){
                             <label className="block mb-2 text-sm font-bold text-lightest" htmlFor="email">
                             Email
                             </label>
-                            <input type="email" name="email" id="email" className="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline" placeholder="Tu correo" onChange={handleChange}/>
+                            <input type="email" name="email" id="email" className="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline text-lightest" placeholder="Tu correo" onChange={handleChange}/>
                         </div>
                         <div className="mb-4">
                             <label className="block mb-2 text-sm font-bold text-lightest" htmlFor="password">
                                 Password
                             </label>
-                            <input type="password" name="password" id="password" className="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline" placeholder="***********" onChange={handleChange}/>
+                            <input type="password" name="password" id="password" className="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline text-lightest" placeholder="***********" onChange={handleChange}/>
                         </div>
                         <div className="mb-4">
                             <button className="w-full p-3 font-bold text-white bg-blue rounded-full focus:outline-none" type="submit">
@@ -134,10 +133,13 @@ export function Login(){
                             </button>
                         </div>
                         <hr className="mb-4 border-t" />
+                        {/*
                         <div className="text-sm text-center">
                             <Link to="/register">Crea una cuenta</Link>
                             <a href="#" onClick={handleResetPass} className="text-blue pl-2">Olvidaste el puto pass ?</a>
                         </div>
+                        
+                        */}
                     </form>
                     
 

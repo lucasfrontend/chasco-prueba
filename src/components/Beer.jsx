@@ -43,6 +43,9 @@ const BeerController = () => {
       }
   }
 
+  const addBeer = () => {
+    
+  }
 
 return <>
     <div>

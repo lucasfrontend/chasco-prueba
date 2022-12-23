@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import pink from '../../assets/aviones/pink.png'
 import green from '../../assets/aviones/green.png'
 import blue from '../../assets/aviones/blue.png'
-import ify from '../../assets/aviones/ify.png'
+//import Spinner from "../spinner";
 import "./arrow.css"
 
 const TableScreen2 = () => {
@@ -16,17 +16,28 @@ const TableScreen2 = () => {
             return []
         }
     })
-    
+
+    //const [loading, setLoading] = useState(false);
+    /*
+    const showSpinner = () => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+            navigate('/')
+        }, 4000);
+    }*/
+
     useEffect(() => {
         window.addEventListener('storage', () => {
           const tandas = JSON.parse(localStorage.getItem('tandasData'))
+          //showSpinner();
           setTandas(tandas);
         })
       }, []);
 
-      console.log(tandas)
     return <>
-        <div className="p-4" >
+    {/* loading ? <Spinner/> : ''*/}
+        <div className="p-4 bg-login-screen backdrop-blur" >
             <div>
                 <h2 className="text-2xl font-semibold"></h2>
                 <div className=""></div>
@@ -62,14 +73,14 @@ const TableScreen2 = () => {
                 <tbody className="" style={{
                         height: '85vh'
                     }}>
-                    <ReactScrollableFeed className="bg-white rounded">
+                    <ReactScrollableFeed className="backdrop-blur rounded">
                         {
                             tandas.length === 0 ? <td className="flex justify-center text-3xl p-8">Aún  no hay tandas</td>
                             : tandas.sort((a, b) => a.number_tanda - b.number_tanda)
                             .map((tanda, index) => {
                                 return <tr key={index} className="border border-slate-300">
                                             <td className="px-5 py-3 text-left font-semibold"> 
-                                                <span className="relative text-5xl text-blue">{ tanda.number_tanda }</span>
+                                                <span className="relative text-4xl text-black">{ tanda.number_tanda }</span>
                                             </td>
                                             <td className="w-1/4 px-5 py-3 text-left font-semibold ">
                                                 <p className="text-3xl text-gray-900 whitespace-no-wrap font-extrabold">{ tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</p>
@@ -101,8 +112,8 @@ const TableScreen2 = () => {
                                                     ? 
                                                         (
                                                             <div class="upload-btn-container">
-                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="30" viewBox="0 0 16 16" version="1.1" >
-                                                                <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
+                                                                <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 16 16" version="1.1" >
+                                                                <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="white" />
                                                                 </svg>
                                                             </div>
                                                         ) 
@@ -115,7 +126,7 @@ const TableScreen2 = () => {
                                             <td className="flex items-center">
                                             {
                                                 tanda.avion.toUpperCase() === 'GYC' ? (
-                                                    <div className="flex-shrink-0 w-20 h-20">
+                                                    <div className="flex-shrink-0 w-16 h-16 p-1">
                                                         <img
                                                         className="w-full h-full"
                                                         src={pink}
@@ -124,7 +135,7 @@ const TableScreen2 = () => {
                                                     </div>
                                                 ) : (
                                                         tanda.avion.toUpperCase() === 'GRI' ? (
-                                                            <div className="flex-shrink-0 w-20 h-20">
+                                                            <div className="flex-shrink-0 w-16 h-16 p-1">
                                                                 <img
                                                                 className="w-full h-full"
                                                                 src={green}
@@ -133,7 +144,7 @@ const TableScreen2 = () => {
                                                             </div>
                                                         ) : (
                                                             tanda.avion.toUpperCase() === 'GSD' ? (
-                                                                <div className="flex-shrink-0 w-20 h-20">
+                                                                <div className="flex-shrink-0 w-16 h-16 p-1">
                                                                     <img
                                                                     className="w-full h-full"
                                                                     src={blue}
@@ -141,13 +152,7 @@ const TableScreen2 = () => {
                                                                     />
                                                                 </div>
                                                             ) : (
-                                                                <div className="flex-shrink-0 w-20 h-20">
-                                                                <img
-                                                                className="w-full h-full"
-                                                                
-                                                                alt="IFY"
-                                                                />
-                                                            </div>
+                                                                ''
                                                             )
                                                         )
 

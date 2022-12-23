@@ -76,8 +76,8 @@ const TandasMain = () => {
     }
 
     return <>
-    <div className="chascobg"></div>
-        <div className="flex flex-wrap mt-4">
+    <div className="bg-tandas min-h-screen p-4 lg:p-20"></div>
+        <div className="md:flex justify-center ">
             <TandasForm addTanda={addTanda} editTanda={editTanda} editData={editData} />
             <TandasController tandas={tandas} setEditData={setEditData} endOfDay={endOfDay} deleteTanda={deleteTanda} />
         </div>

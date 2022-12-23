@@ -74,6 +74,21 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         e.preventDefault();
         if(editData !== null) {
             editTanda(formData);
+            setIsChecked(false);
+            setFormData({
+                id: null,
+                number_tanda: '',
+                paraca_1: '',
+                paraca_2: '',
+                paraca_3: '',
+                paraca_4: '',
+                pilot: '',
+                altitude: '',
+                avion: '',
+                time: '',
+                combus: '',
+                in_flight: '',
+            });
             toast("Tanda editada", {
                 type: "info",
                 autoClose: 2000,
@@ -85,21 +100,9 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 progress: undefined,
                 theme: "light"
             });
-            setIsChecked(false);
         } else {
             formData.id = Math.random().toString(36).substring(0, 7)
             addTanda(formData);
-            toast("Tanda agregada", {
-                type: "info",
-                autoClose: 2000,
-                position:"top-right",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light"
-            });
             setFormData({
                 id: null,
                 number_tanda: '',
@@ -115,6 +118,17 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 in_flight: '',
             });
             setIsChecked(false);
+            toast("Tanda agregada", {
+                type: "info",
+                autoClose: 2000,
+                position:"top-right",
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light"
+            });
         }
         
     }
@@ -153,8 +167,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     }
 
     return <>
-    <div className="w-full lg:w-3/12 py-2 pl-4 pr-2 scroll-auto">
-        <div className="">
+    <div className="px-4 xl:w-1/4 pt-4 backdrop-blur">
+        <div className="text-1xl md:text-1xl lg:text-1xl">
             <div className="bg-blue-light rounded-md" ref={color}>
                 <div className="card rounded-md">
                     <form className="space-y-3" onSubmit={handleSubmit}>
@@ -166,7 +180,6 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             
                             </div>                       
                         </div>
-
                             <div className="minwww bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                 <div className="flex xl:flex-row flex-col">
                                     <label htmlFor="number_tanda" className="pr-2 text-white">Número</label>

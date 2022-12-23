@@ -1,14 +1,37 @@
 
+
 .bg-login {
   background-repeat: no-repeat;
 
 }
 
 .bg-login-screen {
-  background-image: url('./assets/logo_login.svg');
+  background-image: url('./assets/amihead.jpg');
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
 }
+
+.bg-weather {
+  background-image: url('./assets/amihead.jpg');
+  background-repeat: no-repeat;
+  min-width: 100vh;
+  min-height: 100vh;
+}
+
+.bg-tandas {
+  background-image: url('./assets/noe.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}
+
+
 .logo-sdch {
     background-image: url('./assets/logo-letras_verdes.png');
     background-repeat: no-repeat;
@@ -35,6 +58,7 @@
   transform: translate(-50%, -50%);
   opacity: 0.2;
   z-index: -10;
+  overflow: auto;
  }
 
  .pch {

@@ -20,17 +20,12 @@ const SideBar = () => {
   const [open, setOpen] = useState(false);
   
     return <>
-    <section className="flex gap-6">
+    <section className="flex gap-6 left-side">
       <div
         className={`bg-[#0e0e0e] min-h-screen ${
           open ? "w-40" : "w-16"
         } duration-500 text-gray-100 px-4`}
       >
-        {/*
-          <div className="w-24 h-16 text-blue-500 flex items-center justify-center">
-              <img src={logo} alt="" />
-          </div>
-        */}
         <div className="py-3 pt-6 px-1 flex justify-end">
           <div
             size={26}
@@ -38,7 +33,7 @@ const SideBar = () => {
             onClick={() => setOpen(!open)}
           >
             <div className={`${
-          open ? "b-active burger" : "burger"
+          open ? " burger" : "burger"
         } `}>
               <svg width="90%" height="90%" viewBox="0 0 26 24">
                 <rect y="0" width="26" height="3" fill="white"></rect>
@@ -51,7 +46,7 @@ const SideBar = () => {
         <div className="mt-8 flex flex-col gap-4 relative">
  
         <NavLink
-            to='/'
+            to='/welcome'
             className="group flex items-center text-sm gap-3.5 font-medium hover:bg-gray-800 rounded-md">
             <div className="flex pb-8">
               <div className="">
@@ -72,7 +67,7 @@ const SideBar = () => {
             className="group flex items-center text-sm gap-3.5 font-medium hover:bg-gray-800 rounded-md">
             <div className="flex pb-8">
               <div className="text-blue">
-                <svg viewBox="0 0 15 15" width="23" height="23" data-reactid=".0.1.0.1.0.$airfield.0"><title data-reactid=".0.1.0.1.0.$airfield.0.0">airfield</title><path fill="#FFFF" d="m 6.818182,0.6818182 -2.045455,0 C 4.090909,0.6818182 4.090909,0 4.772727,0 l 5.454546,0 c 0.681818,0 0.681818,0.6818182 0,0.6818182 l -2.045455,0 c 0,0 0.818182,0.590909 0.818182,1.9545454 L 9,4 15,4 15,6 9,8 8.5,13 11,14.318182 11,15 4,15 4,14.318182 6.5,13 6,8 0,6 0,4 6,4 6,2.6363636 C 6,1.2727272 6.818182,0.6818182 6.818182,0.6818182 Z" data-reactid=".0.1.0.1.0.$airfield.0.4:$0"></path></svg>
+                <svg viewBox="0 0 15 15" width="23" height="23" fill="currentColor" data-reactid=".0.1.0.1.0.$airfield.0"><title data-reactid=".0.1.0.1.0.$airfield.0.0">airfield</title><path fill="currentColor" d="m 6.818182,0.6818182 -2.045455,0 C 4.090909,0.6818182 4.090909,0 4.772727,0 l 5.454546,0 c 0.681818,0 0.681818,0.6818182 0,0.6818182 l -2.045455,0 c 0,0 0.818182,0.590909 0.818182,1.9545454 L 9,4 15,4 15,6 9,8 8.5,13 11,14.318182 11,15 4,15 4,14.318182 6.5,13 6,8 0,6 0,4 6,4 6,2.6363636 C 6,1.2727272 6.818182,0.6818182 6.818182,0.6818182 Z" data-reactid=".0.1.0.1.0.$airfield.0.4:$0"></path></svg>
               </div>                
               <h1 style={{ transitionDelay: `100ms`,   }}
                 className={`whitespace-pre pl-2 font-bold duration-500 ${
@@ -87,7 +82,7 @@ const SideBar = () => {
             className="group flex items-center text-sm gap-3.5 font-medium hover:bg-gray-800 rounded-md">
             <div className="flex pb-8">
               <div className="">
-              <svg class="beer-svg" width="29" height="29" viewBox="0 0 138 152" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="beer-svg" width="29" height="29" viewBox="0 0 138 152" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.17578 128C8.74229 131.624 9.71024 134.597 11.2691 137.24C13.653 141.282 16.9519 144.709 20.9007 147.244C28.3074 152 38.612 152 59.2211 152C79.8302 152 90.1347 152 97.5415 147.244C101.49 144.709 104.789 141.282 107.173 137.24C108.732 134.597 109.7 131.624 110.266 128H8.17578Z" fill="#FAD000" />
                 <rect class="beer-height" x="33" y="24" width="93" height="0" fill="#FFFF" />
                 <path d="M107 59H122.466C129.663 59 135.241 65.2916 134.379 72.437L131.123 99.437C130.395 105.465 125.281 110 119.209 110H107" stroke="black" stroke-width="6" />
@@ -152,7 +147,7 @@ const SideBar = () => {
               > cal C(!)L adora </h2>
             </div>
           </NavLink>
-
+{/*
           <NavLink
             to='/other'
             className="group flex items-center text-sm gap-3.5 font-medium hover:bg-gray-800 rounded-md">
@@ -169,6 +164,8 @@ const SideBar = () => {
               > Alerts </h2>
             </div>
           </NavLink>
+
+*/}
 
 
 

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap");
 :root {
-  --delay: 0s;
+  --delay: 0.2s;
 }
 
 /*
@@ -10,12 +10,6 @@
 */
 img {
   max-width: 100%;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background-color: #252954;
-  color: #9b9ca7;
 }
 
 .wrapper {
@@ -116,7 +110,9 @@ body {
 }
 .user-box .cards-header .cards-button,
 .user-box .cards-view .cards-button {
+  /*
   background: #15193c;
+  */
   padding: 10px 16px;
   margin-right: 0;
 }

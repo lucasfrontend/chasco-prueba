@@ -7,6 +7,7 @@ import Beer from './components/Beer'
 import BeerTable from './Pages/BeerTable'
 import Page404 from './components/Page404'
 import Setting from './Pages/Setting'
+import Spinner from './components/spinner'
 import './App.css'
 import TableScreen2 from './components/dumbComponents/TableScreen2'
 import { ToastContainer } from 'react-toastify'
@@ -18,6 +19,7 @@ import Spash from './Pages/splash'
 import { ProtectedRoute } from './auth/protectedRoutes'
 //borrar?
 import './firebase'
+import WeatherPanel from './components/Weather/WeatherPanel'
 
 function App() {
 
@@ -30,6 +32,11 @@ function App() {
               <Layout />
             </ProtectedRoute>
           }>
+          <Route path='/welcome' element={
+            <ProtectedRoute>
+              <WeatherPanel />
+            </ProtectedRoute>
+          } /> 
           <Route path='/home' element={
             <ProtectedRoute>
               <TandasMain />

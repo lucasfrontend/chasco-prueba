@@ -4,7 +4,7 @@ import { useAuth } from '../context/authContext'
 import '../components/NavBar.css'
 
 const NavBar = () => {
-  const { user, logout, loading } = useAuth()
+  const { user, logout } = useAuth()
   const navigate = useNavigate();
   const fecha = new Date().toLocaleDateString()
 
@@ -16,7 +16,7 @@ const NavBar = () => {
     }
   }
   
-    if(loading) return <h1>Loading</h1>
+
     return <>
           
           <div className="header mb-2">
@@ -42,8 +42,9 @@ const NavBar = () => {
             </NavLink>
             <NavLink to="/beer" className={({isActive}) => isActive ? 'header-link active text-white': 'header-link text-black'}>
               <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-              <path d="M500 113.3C326.1 78.7 337.4 80.5 333.4 81.2L281 91.7A111.2 111.2 0 00176 17c-48.6 0-90 31.3-105 74.8L18 81.3A15 15 0 000 96v352a15 15 0 0012 14.7l162.2 32.2c3.6.4-7.6 2.3 161.8-31.6l158 31.4a15 15 0 0018-14.7V128a15 15 0 00-12-14.7zM176 47a81 81 0 0181 81c0 37.7-60.3 133.3-81 165-20.7-31.6-81-127.3-81-165a81 81 0 0181-81zM30 114.2l35.2 7a112 112 0 00-.2 6.8c0 25 16.4 65.4 50 123.4 19.7 33.9 39 63 46 73.2v137.1l-131-26zm161 210.4c7-10.2 26.3-39.3 46-73.2 33.6-58 50-98.4 50-123.4 0-2.3 0-4.6-.2-6.9l34.2-6.8v321.4l-130 26zm291 137.1l-131-26V114.3l131 26z" />
-              <path d="M176 175a47 47 0 10-.1-94.1 47 47 0 00.1 94zm0-64a17 17 0 110 34 17 17 0 010-34z" /></svg>
+                <path d="M500 113.3C326.1 78.7 337.4 80.5 333.4 81.2L281 91.7A111.2 111.2 0 00176 17c-48.6 0-90 31.3-105 74.8L18 81.3A15 15 0 000 96v352a15 15 0 0012 14.7l162.2 32.2c3.6.4-7.6 2.3 161.8-31.6l158 31.4a15 15 0 0018-14.7V128a15 15 0 00-12-14.7zM176 47a81 81 0 0181 81c0 37.7-60.3 133.3-81 165-20.7-31.6-81-127.3-81-165a81 81 0 0181-81zM30 114.2l35.2 7a112 112 0 00-.2 6.8c0 25 16.4 65.4 50 123.4 19.7 33.9 39 63 46 73.2v137.1l-131-26zm161 210.4c7-10.2 26.3-39.3 46-73.2 33.6-58 50-98.4 50-123.4 0-2.3 0-4.6-.2-6.9l34.2-6.8v321.4l-130 26zm291 137.1l-131-26V114.3l131 26z" />
+              <path d="M176 175a47 47 0 10-.1-94.1 47 47 0 00.1 94zm0-64a17 17 0 110 34 17 17 0 010-34z" />
+            </svg>
               Beer
             </NavLink>
 
@@ -54,7 +55,10 @@ const NavBar = () => {
                 <div className="hour text-white"> bla</div>
                 <div className="title text-white"> { fecha }</div>
               </div>
-              <button className="button text-white" onClick={handleLogout}>Salir
+              <button className=" text-white ml-4" onClick={handleLogout}>Salir
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 17" height="2.5em" width="2.5em" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z"></path>
+                </svg>
               </button>
           </div>
     </>

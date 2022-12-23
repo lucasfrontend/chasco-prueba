@@ -53,14 +53,15 @@ const Setting = () => {
             <PilotosTabla pilots={pilots} setEditData={setEditData} deletePilot={deletePilot}/>
             <div>
             <h3 className="pt-8 pl-8 font-semibold text-2xl text-white">Tandems</h3>
+            <h1>no agregar</h1>
         </div>
             <div className="">
             <div className="blue_sdch ml-6">
-                <div className="activity card">
+                <div className="activity card bg-lightest">
                     <form className="space-y-4">
-                        <h4 className="text-white">PIlotos tandem</h4>
-                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <select name="name_pilot" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-withe">
+                        <h4 className="">PIlotos tandem NO       AGREGAR NADA</h4>
+                        <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow  bg-red">
+                            <select name="name_pilot" className="bg-redbg-red w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                                 <option className="text-white">1</option>
                                 <option className="text-white">2</option>
                                 <option className="text-white">3</option>
