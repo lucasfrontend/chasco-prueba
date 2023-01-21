@@ -14,16 +14,6 @@ const TableScreen2 = () => {
         }
     })
 
-    //const [loading, setLoading] = useState(false);
-    /*
-    const showSpinner = () => {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-            navigate('/')
-        }, 4000);
-    }*/
-
     useEffect(() => {
         window.addEventListener('storage', () => {
           const tandas = JSON.parse(localStorage.getItem('tandasData'))
@@ -34,7 +24,6 @@ const TableScreen2 = () => {
 
 
     return <>
-    {/* loading ? <Spinner/> : ''*/}
         <div className="min-h-screen bg-gray-500 bg-login-screen backdrop-blur" >
             <div className="p-4">
                 <div className="rounded-lg shadow-lg overflow-hidden">
