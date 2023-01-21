@@ -17,11 +17,9 @@ const TableScreen2 = () => {
     useEffect(() => {
         window.addEventListener('storage', () => {
           const tandas = JSON.parse(localStorage.getItem('tandasData'))
-          //showSpinner();
           setTandas(tandas);
         })
       }, []);
-
 
     return <>
         <div className="min-h-screen bg-gray-500 bg-login-screen backdrop-blur" >
