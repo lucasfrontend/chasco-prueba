@@ -57,6 +57,7 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <select name="name_pilot" className="bg-dark w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.name_pilot}>
                                 <option className="text-white">Pilotos</option>
+                                <option className="text-white">Facu</option>
                                 <option className="text-white">Fer L</option>
                                 <option className="text-white">Martin</option>
                                 <option className="text-white">Mati</option>
