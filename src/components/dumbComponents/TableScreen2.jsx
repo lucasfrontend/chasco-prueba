@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactScrollableFeed from 'react-scrollable-feed'
 import Footer from "./Footer";
-//import Spinner from "../spinner";
 import "./arrow.css"
 import "./table.css"
 
