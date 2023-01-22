@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import "./arrow.css"
 import "./table.css"
 
+
 const TableScreen2 = () => {
     const [tandas, setTandas] = useState(() => {
         const saveTandas = window.localStorage.getItem('tandasData');
@@ -21,6 +22,7 @@ const TableScreen2 = () => {
         })
       }, []);
 
+      {/* probando url */}
     return <>
         <div className="min-h-screen bg-gray-500 bg-login-screen backdrop-blur" >
             <div className="p-4">
