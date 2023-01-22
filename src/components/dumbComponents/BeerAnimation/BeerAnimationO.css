@@ -1,0 +1,231 @@
+
+  .side {
+    width: 100vh;
+    height: 100vh;
+  }
+  
+  .ad-wrap {
+    height: 0;
+    padding-top: 100%;
+    position: relative;
+    width: 100%;
+  }
+  
+  .bb-ad {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .bb-ad-beer {
+    -webkit-animation: beerspin 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+            animation: beerspin 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+  }
+  
+  @-webkit-keyframes beerspin {
+    0% {
+      transform: translateX(350px);
+    }
+    3% {
+      transform: translateX(350px);
+    }
+    13% {
+      transform: translateX(0px);
+    }
+    20% {
+      transform: rotate(0deg) scale(1, 1);
+      transform-origin: center center;
+    }
+    25% {
+      transform: rotate(360deg) scale(0, 0);
+      transform-origin: center center;
+      opacity: 1;
+    }
+    26% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes beerspin {
+    0% {
+      transform: translateX(350px);
+    }
+    3% {
+      transform: translateX(350px);
+    }
+    13% {
+      transform: translateX(0px);
+    }
+    20% {
+      transform: rotate(0deg) scale(1, 1);
+      transform-origin: center center;
+    }
+    25% {
+      transform: rotate(360deg) scale(0, 0);
+      transform-origin: center center;
+      opacity: 1;
+    }
+    26% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .bb-ad-bread {
+    -webkit-animation: breadspin 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+            animation: breadspin 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+  }
+  
+  @-webkit-keyframes breadspin {
+    0% {
+      opacity: 0;
+    }
+    21% {
+      opacity: 0;
+    }
+    22% {
+      opacity: 1;
+      transform: scale(0, 0) rotate(0deg);
+      transform-origin: center center;
+    }
+    30% {
+      transform: scale(1, 1) rotate(360deg);
+      transform-origin: center center;
+    }
+    40% {
+      transform: scale(1, 1) rotate(360deg) translateX(0);
+      transform-origin: center center;
+    }
+    45% {
+      transform: translateX(-400px);
+    }
+    100% {
+      transform: translateX(-400px);
+    }
+  }
+  
+  @keyframes breadspin {
+    0% {
+      opacity: 0;
+    }
+    21% {
+      opacity: 0;
+    }
+    22% {
+      opacity: 1;
+      transform: scale(0, 0) rotate(0deg);
+      transform-origin: center center;
+    }
+    30% {
+      transform: scale(1, 1) rotate(360deg);
+      transform-origin: center center;
+    }
+    40% {
+      transform: scale(1, 1) rotate(360deg) translateX(0);
+      transform-origin: center center;
+    }
+    45% {
+      transform: translateX(-400px);
+    }
+    100% {
+      transform: translateX(-400px);
+    }
+  }
+  .bb-ad-recipes {
+    -webkit-animation: recipetxt 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+            animation: recipetxt 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+  }
+  
+  @-webkit-keyframes recipetxt {
+    0% {
+      transform: translateY(100px);
+    }
+    43% {
+      transform: translateY(100px);
+    }
+    49% {
+      transform: translateY(0);
+    }
+    70% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(100px);
+    }
+    100% {
+      transform: translateY(100px);
+    }
+  }
+  
+  @keyframes recipetxt {
+    0% {
+      transform: translateY(100px);
+    }
+    43% {
+      transform: translateY(100px);
+    }
+    49% {
+      transform: translateY(0);
+    }
+    70% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(100px);
+    }
+    100% {
+      transform: translateY(100px);
+    }
+  }
+  .bb-ad-bb {
+    -webkit-animation: bbtxt 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+            animation: bbtxt 10s cubic-bezier(0.99, -0.24, 0.15, 1.32) infinite;
+  }
+  
+  @-webkit-keyframes bbtxt {
+    0% {
+      transform: scaleX(0);
+    }
+    47% {
+      transform: scaleX(0);
+    }
+    54% {
+      transform: scaleX(1);
+    }
+    70% {
+      transform: translateY(0);
+    }
+    79% {
+      transform: translateY(130px);
+    }
+    100% {
+      transform: translateY(130px);
+    }
+  }
+  
+  @keyframes bbtxt {
+    0% {
+      transform: scaleX(0);
+    }
+    47% {
+      transform: scaleX(0);
+    }
+    54% {
+      transform: scaleX(1);
+    }
+    70% {
+      transform: translateY(0);
+    }
+    79% {
+      transform: translateY(130px);
+    }
+    100% {
+      transform: translateY(130px);
+    }
+  }
