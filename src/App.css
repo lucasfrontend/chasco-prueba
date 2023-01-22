@@ -8,7 +8,7 @@
 .bg-login-screen {
   background-image: url('./assets/amihead.jpg');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
 }
 
 .bg-weather {
