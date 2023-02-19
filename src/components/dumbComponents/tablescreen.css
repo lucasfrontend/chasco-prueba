@@ -1,0 +1,9 @@
+.logo-totalBeer{
+    background-image: url('./assets/logo-letras_verdes.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    min-height: 100px;
+    min-width: 100px;
+    opacity: 0.2;
+    z-index: 0;
+}
