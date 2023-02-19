@@ -10,9 +10,10 @@ import { toast } from 'react-toastify';
 
 const ParacasMain = () => {
 
+    /*
     const db = getFirestore();
 
-//    const [ loading, setLoading] = useState(true)
+    const [ loading, setLoading] = useState(true)
     const [paracas, setParacas] = useState([])
 
     useEffect(() => {
@@ -23,6 +24,7 @@ const ParacasMain = () => {
         .finally(()=> setLoading(false))
         console.log("paracas", paracas)
     }, [])
+    */
     /*
     const getParacas = async () => {
         const queryCollection = collection(db, 'skydivers');

@@ -1,11 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import DeudorRow from "../dumbComponents/DeudorRow";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
-import { useEffect } from "react";
-import { useState } from "react";
 
 const DeudoresTabla = ({ deudores, setEditData, deleteDeudor}) => {
-
     const [ debtors, setdebtors ] = useState()
     const [ loading, setLoading] = useState(true)
 

@@ -56,8 +56,10 @@ const Setting = () => {
             <h1>no agregar</h1>
         </div>
             <div className="">
+                    {/*
             <div className="blue_sdch ml-6">
                 <div className="activity card bg-lightest">
+                    
                     <form className="space-y-4">
                         <h4 className="">PIlotos tandem NO       AGREGAR NADA</h4>
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow  bg-red">
@@ -76,6 +78,7 @@ const Setting = () => {
                     </form>
                 </div>
             </div>
+                    */}
         </div>
         </div>
  

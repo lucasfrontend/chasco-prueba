@@ -46,6 +46,17 @@
     z-index: -0;
   }
 
+  .logo-sdch-beer {
+    background-image: url('./assets/logo-letras_verdes.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    min-height: 200px;
+    min-width: 200px;
+    position: relative;
+    opacity: 0.2;
+    z-index: -0;
+  }
+
  .chascobg{
   background-image: url('./assets/chasco-amarillo.png');
   background-repeat: no-repeat;
