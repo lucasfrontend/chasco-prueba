@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ReactScrollableFeed from 'react-scrollable-feed'
-import { addDoc, updateDoc, collection, getFirestore, getDoc, QuerySnapshot, getDocs, query, where } from "firebase/firestore";
-import BeerAnimation from './BeerAnimation/BeerAnimation'
+import { collection, getFirestore, getDocs, query, where } from "firebase/firestore";
+//import BeerAnimation from './BeerAnimation/BeerAnimation'
 
 //import { SdChContextProvider } from '../../context/sdchContext'
 import Footer from "./Footer";
 import "./arrow.css"
 import "./table.css"
-import "./TableScreen.css"
+//import "./TableScreen.css"
 
 
 const TableScreen2 = () => {
