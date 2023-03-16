@@ -182,7 +182,9 @@ const TableScreen2 = () => {
             
             */}
         </div>
+        {/*
         <Footer />
+        */}
 
     </>
 

@@ -157,6 +157,7 @@ export function Login(){
                         </span>
                         <span className="text-lightest">Continuar con Google</span>
                     </button>
+                    <h4 className="absolute bottom-1 right-1">Make with <span className="text-red text-2xl">♥</span> by <a href="https://porfolio-with-vue-and-tailwind.vercel.app/" className="text-blue">Lucas Mar</a></h4>
                 </div>
             </div>
         </div> 
