@@ -113,7 +113,7 @@ export function Login(){
 
                 </div>
                 <div className="w-full lg:w-1/2 bg-white rounded-lg lg:rounded-l-none py-24 px-12">
-                    <h3 className="font-bold text-3xl text-red-600 text-center tracking-widest uppercase mb-4 text-blue">Barrilogin</h3>
+                    <h3 className="font-bold text-3xl text-red-600 text-center tracking-widest uppercase mb-4 text-blue">ChascoApp</h3>
                     <form className="bg-white" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label className="block mb-2 text-sm font-bold text-lightest" htmlFor="email">
