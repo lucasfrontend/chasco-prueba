@@ -1,5 +1,4 @@
-import React, { useRef, forwardRef, useImperativeHandle } from "react";
-// import Tanda from './dumbComponents/tanda'
+import React, { useRef, forwardRef } from "react";
 import ReactScrollableFeed from 'react-scrollable-feed'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import goPro from '../assets/gopro.svg'
@@ -7,7 +6,6 @@ import goPro from '../assets/gopro.svg'
 const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDay }, ref) => {
     const tableRef = useRef(null);
     const btn_ref = useRef(null)
-    const colorSelected = () => setColor(visible)
 
     return <>   
         <div className="p-4 md:w-3/4 rounded">

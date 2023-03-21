@@ -1,10 +1,8 @@
 import React from 'react'
 import { Route, Routes, HashRouter } from 'react-router-dom'
 import Layout from './components/Layout'
-import TandasMain from './components/TandasMain'
-import Data from './Pages/Data'
+import TandasMain from './Manifest/TandasMain'
 import Beer from './components/Beer'
-import BeerTable from './Pages/BeerTable'
 import Page404 from './components/Page404'
 import Setting from './Pages/Setting'
 //import Spinner from './components/spinner'
@@ -16,7 +14,6 @@ import { Login } from './auth/Login'
 import { Register } from './auth/Register'
 import { AuthProvider} from './context/authContext'
 import { SdChContextProvider } from './context/sdchContext'
-import Spash from './Pages/splash'
 import { ProtectedRoute } from './auth/protectedRoutes'
 //borrar?
 import './firebase'
@@ -46,7 +43,7 @@ function App() {
             } /> 
             <Route path='/data' element={
               <ProtectedRoute>
-                <Data />
+                <Page404 />
               </ProtectedRoute>
             }/>
             <Route path='/beer' element={
@@ -62,8 +59,6 @@ function App() {
               <Route path='*' element={<Page404 />} />
             </Route>
             <Route path='/table' element={<TableScreen2 />}></Route>
-            <Route path='/deudores' element={<BeerTable />}></Route>
-            <Route path='/sdch' element={<Spash />}></Route>
             <Route path='/login' element={<Login />} /> 
             <Route path='/register' element={<Register />} /> 
           </Routes>

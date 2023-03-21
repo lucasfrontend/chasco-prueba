@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import DeudoresForm from "./DeudoresForm/DeudoresForm";
-import DeudoresTabla from "./DeudoresForm/DeudoresTabla";
+import DeudoresForm from "./Beer/DeudoresForm";
+import DeudoresTabla from "./Beer/DeudoresTabla";
 import '../Pages/setting.css'
 
 const BeerController = () => {

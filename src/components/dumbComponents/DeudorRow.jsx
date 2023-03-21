@@ -1,5 +1,5 @@
 import React from "react";
-import { BeerCount } from "../DeudoresForm/BeerCount";
+import { BeerCount } from "../Beer/BeerCount";
 
 const DeudorRow = ({ el, setEditData, deletePilot }) => {
 
