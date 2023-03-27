@@ -19,7 +19,7 @@ const ParacasTable = ({paracas}) => {
     */
     return <>
     <div className="text-black">
-        <table class="w-full">
+        <table className="w-full">
             <thead className="">
                 <div className="bg-red">
                     <tr className="">

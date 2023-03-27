@@ -19,7 +19,7 @@ const DeudoresTabla = ({ deudores, setEditData, deleteDeudor}) => {
  
     console.log("debtors", debtors)
     return <>
-        <table class="ml-4">
+        <table className="ml-4">
             <thead className="">
                 <div className="bg-blue-cards rounded-t ">
                     <tr className="">

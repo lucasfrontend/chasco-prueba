@@ -7,7 +7,7 @@ import Page404 from './components/Page404'
 import Setting from './Pages/Setting'
 //import Spinner from './components/spinner'
 import './App.css'
-import TableScreen2 from './components/dumbComponents/TableScreen2'
+import TableScreen2 from './Manifest/TableScreen2'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Login } from './auth/Login'
@@ -63,7 +63,6 @@ function App() {
             <Route path='/register' element={<Register />} /> 
           </Routes>
           <ToastContainer/>
-
         </SdChContextProvider>
       </AuthProvider>
     </HashRouter>

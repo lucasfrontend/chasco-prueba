@@ -67,8 +67,8 @@ const PilotosForm = ({ addPilot, editPilot, editData }) => {
                         </div>
 
                         <div className="flex justify-end">
-                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Agregar"/>
-                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Reset" onClick={handleReset}/>
+                            <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Agregar"/>
+                            <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Reset" onClick={handleReset}/>
                         </div>
                     </form>
                 </div>

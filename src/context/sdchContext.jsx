@@ -11,6 +11,7 @@ export const SdChContextProvider = ({ children }) => {
     const [ loading, setLoading] = useState(true)
     const [paracas, setParacas] = useState([])
 
+    /*
     useEffect(() => {
         const queryCollection = collection(db, 'skydivers')
         getDocs(queryCollection)
@@ -20,6 +21,7 @@ export const SdChContextProvider = ({ children }) => {
         console.log("paracas", paracas)
     }, [])
 
+    */
     /*
     const [ debtors, setdebtors ] = useState()
 

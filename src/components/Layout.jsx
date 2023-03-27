@@ -13,10 +13,6 @@ const Layout = () => {
 
     //console.log("users", user)
     return <>
-    {/*
-    
-        <canvas class="orb-canvas"></canvas>
-    */}
         <div className=" dark:text-white text-gray-600 flex text-sm">
             <SideBar />
             <div className="flex-grow overflow-hidden h-full flex flex-col">

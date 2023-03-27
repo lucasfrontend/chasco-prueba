@@ -157,8 +157,8 @@ const TableScreen = () => {
                                                             tanda.in_flight === true 
                                                             ? 
                                                                 (
-                                                                    <div class="upload-btn-container">
-                                                                        <svg class="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="36" viewBox="0 0 16 16" version="1.1" >
+                                                                    <div className="upload-btn-container">
+                                                                        <svg className="upload-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="36" viewBox="0 0 16 16" version="1.1" >
                                                                         <path id="upload-arrow" d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z" fill="#3e4ec2" />
                                                                         </svg>
                                                                     </div>

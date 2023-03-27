@@ -5,19 +5,19 @@ import './spinner.css'
 const Spinner = () => {
 
     return <>
-        <section class="altimeters">
-            <container class="altimeter2">
-                <div class="altimeter" >
+        <section className="altimeters">
+            <container className="altimeter2">
+                <div className="altimeter" >
                     <input type="hidden" name="clockMinutes" id="clockMinutes" value="21" />
-                    <article class="clock">
-                        <div class="minutes-container">
-                                <div class="minutes"></div>
+                    <article className="clock">
+                        <div className="minutes-container">
+                                <div className="minutes"></div>
                             </div> 
-                        <div class="seconds-container-bobo">
-                            <div class="seconds"></div>
+                        <div className="seconds-container-bobo">
+                            <div className="seconds"></div>
                         </div>
-                        <div class="seconds-container">
-                            <div class="seconds"></div>
+                        <div className="seconds-container">
+                            <div className="seconds"></div>
                         </div>
                     </article>
                 </div>

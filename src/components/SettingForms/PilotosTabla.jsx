@@ -4,7 +4,7 @@ import TableRow from "../dumbComponents/TableRow";
 const PilotosTabla = ({ pilots, setEditData, deletePilot}) => {
  
     return <>
-        <table class="ml-4">
+        <table className="ml-4">
             <thead className="">
                 <div className="bg-blue-cards rounded-t ">
                     <tr className="">

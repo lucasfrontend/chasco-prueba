@@ -69,21 +69,21 @@ const ParacasForm = ({addParaca, editParaca}) => {
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="last_name" className="pr-2 text-white">Apellido</label>
-                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="last_name" value={paraca.last_name} onChange={handleChange}/>
+                                <input className="bg-dark w-full text-white" type="text" maxLength="23" name="last_name" value={paraca.last_name} onChange={handleChange}/>
                             </div>
                         </div>
 
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="fly_name" className="pr-2 text-white">ChascoName</label>
-                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="fly_name" value={paraca.fly_name} onChange={handleChange}/>
+                                <input className="bg-dark w-full text-white" type="text" maxLength="23" name="fly_name" value={paraca.fly_name} onChange={handleChange}/>
                             </div>
                         </div>
 
                         <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
                             <div className="flex xl:flex-row flex-col">
                                 <label htmlFor="contact" className="pr-2 text-white">Tel de contacto</label>
-                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="contact" value={paraca.contact} onChange={handleChange}/>
+                                <input className="bg-dark w-full text-white" type="text" maxLength="23" name="contact" value={paraca.contact} onChange={handleChange}/>
                             </div>
                         </div>
 
@@ -95,8 +95,8 @@ const ParacasForm = ({addParaca, editParaca}) => {
                         </div>
 
                         <div className="flex justify-end">
-                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Guardar"/>
-                            <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Cancelar" onClick={handleReset}/>
+                            <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Guardar"/>
+                            <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Cancelar" onClick={handleReset}/>
                         </div>
                     </form>
                 </div>

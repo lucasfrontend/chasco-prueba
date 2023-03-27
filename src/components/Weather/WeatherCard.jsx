@@ -48,78 +48,64 @@ const WeatherCard = ({show, loading, weather, forecast}) => {
 
     return <>
     <div className="">
-          <div class=" border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6 backdrop-blur">
-              <div class="border-b px-6">
-                  <div class="flex justify-between -mb-px">
-                    <div class="text-3xl py-4 text-lg">
+          <div className=" border-t border-b sm:border-l sm:border-r sm:rounded shadow mb-6 backdrop-blur">
+              <div className="border-b px-6">
+                  <div className="flex justify-between -mb-px">
+                    <div className="text-3xl py-4 text-lg">
                         {weather.name}
                     </div>
-                    {/*
-                        <div class="hidden lg:flex">
-                            <button type="button" class="appearance-none py-4 text-blue-dark border-b border-blue-dark mr-6">
-                                Bitcoin &middot;
-                            </button>
-                            <button type="button" class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-6">
-                                Ethereum &middot; CA$884.80
-                            </button>
-                            <button type="button" class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark">
-                                Litecoin &middot; CA$358.24
-                            </button>
-                        </div>
-                    
-                    */}
-                    <div class="flex text-sm">
+                    <div className="flex text-sm">
                         <div className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                            <div class="nrc-weather icon-sunrise"> </div>
+                            <div className="nrc-weather icon-sunrise"> </div>
                         </div>
-                        <div class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3 text-2xl">
+                        <div className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3 text-2xl">
                         {timeSunrise} AM
                         </div>
-                        <div class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
-                            <div class="nrc-weather icon-sunset"></div>
+                        <div className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3">
+                            <div className="nrc-weather icon-sunset"></div>
                         </div>
-                        <div class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3 text-2xl">
+                        <div className="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-3 text-2xl">
                         {timeSunset} PM
                         </div>
                     </div>
                 </div>
           </div>
             
-            <div class=" lg:flex">
-                <div class="w-1/3 text-center py-8">
-                    <div class="border-r">
-                        <div class="text-grey-darker mb-2">
-                            <div class="w-7 tracking-wide">
+            <div className=" lg:flex">
+                <div className="w-1/3 text-center py-8">
+                    <div className="border-r">
+                        <div className="text-grey-darker mb-2">
+                            <div className="w-7 tracking-wide">
                                 <img src="https://res.cloudinary.com/abdelaziz18003/image/upload/v1443203550/showLocalWeather/max-temp.png" alt="temperature icon" title="Click to switch between °C and °F"/>
                             </div>
-                            <p class="text-5xl align-top ">Temp{(weather.main.temp - 273.15).toFixed(1)}</p>
-                            <p class="text-2xl">Min {(weather.main.temp_min - 273.15).toFixed(1)} C</p>
-                            <p class="text-2xl align-top">Max {(weather.main.temp_max - 273.15).toFixed(1)} C</p>
-                            <p class="text-2xl">Térm {(weather.main.feels_like - 273.15).toFixed(1)} C</p>
+                            <p className="text-5xl align-top ">Temp{(weather.main.temp - 273.15).toFixed(1)}</p>
+                            <p className="text-2xl">Min {(weather.main.temp_min - 273.15).toFixed(1)} C</p>
+                            <p className="text-2xl align-top">Max {(weather.main.temp_max - 273.15).toFixed(1)} C</p>
+                            <p className="text-2xl">Térm {(weather.main.feels_like - 273.15).toFixed(1)} C</p>
                         </div>
                     </div>
                 </div>
-                <div class="w-1/3 text-center py-8">
-                    <div class="border-r">
-                    <div class="text-grey-darker mb-2">
-                        <div class="w-10 tracking-wide">
+                <div className="w-1/3 text-center py-8">
+                    <div className="border-r">
+                    <div className="text-grey-darker mb-2">
+                        <div className="w-10 tracking-wide">
                             <img src="https://res.cloudinary.com/abdelaziz18003/image/upload/v1443351278/showLocalWeather/wind.png" alt="temperature icon" title="Click to switch between °C and °F"/>
                         </div>
-                        <p class="text-5xl align-top"><p class="text-green align-top text-3xl">Velocidad</p>Speed {weather.wind.speed} m/s</p>
-                        <p class="text-2xl">N {weather.wind.speed * 1944 / 1} m/s</p>
-                        <p class="text-2xl">GUST {weather.wind.gust}</p>
-                        <p class="text-2xl align-top">DEG {weather.wind.deg}</p>
+                        <p className="text-5xl align-top"><p className="text-green align-top text-3xl">Velocidad</p>Speed {weather.wind.speed} m/s</p>
+                        <p className="text-2xl">N {weather.wind.speed * 1944 / 1} m/s</p>
+                        <p className="text-2xl">GUST {weather.wind.gust}</p>
+                        <p className="text-2xl align-top">DEG {weather.wind.deg}</p>
                     </div>
                     </div>
                 </div>
-                <div class="w-1/3 text-center py-8">
+                <div className="w-1/3 text-center py-8">
                     <div>
-                    <div class="text-grey-darker mb-2">
-                        <span class="text-3xl align-top"><span class="text-green align-top">description</span>{weather.weather[0].description}</span>
-                        <span class="text-3xl align-top">{weather.weather[0].main}</span>
+                    <div className="text-grey-darker mb-2">
+                        <span className="text-3xl align-top"><span className="text-green align-top">description</span>{weather.weather[0].description}</span>
+                        <span className="text-3xl align-top">{weather.weather[0].main}</span>
                         <span><img src={iconUrl} alt="icon" />{weather.weather[0].description}</span>
                     </div>
-                    <div class="text-sm uppercase text-grey tracking-wide">
+                    <div className="text-sm uppercase text-grey tracking-wide">
                         titulo (%)
                     </div>
                     </div>

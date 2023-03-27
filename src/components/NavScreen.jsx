@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const NavScreen = () => {
   return <>
-      <div class="cards-header">
+      <div className="cards-header">
         <Link to="/table">
             <span>Tabla</span>
         </Link>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { toast } from 'react-toastify';
+import { CustomSelect } from "../components/CustomSelect";
 
 const TandasForm = ({ addTanda, editTanda, editData }) => {
 
@@ -11,7 +12,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     const [isChecked, setIsChecked] = useState(false);
 
     const [formData, setFormData] = useState({
-        id: null,
+        local_id: null,
         number_tanda: '',
         paraca_1: '',
         paraca_2: '',
@@ -22,7 +23,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         avion: '',
         time: '',
         combus: '',
-        in_flight: ''
+        in_flight: '',
+        is_landing: false
     })
     
     useEffect(() => {
@@ -37,7 +39,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             changeColorEdit()
         }else {
             setFormData({
-                id: null,
+                local_id: null,
                 number_tanda: '',
                 paraca_1: '',
                 paraca_2: '',
@@ -48,7 +50,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 avion: '',
                 time: '',
                 combus: '',
-                in_flight: ''
+                in_flight: '',
+                is_landing: false
             })
             changeColorOrigin()
         }
@@ -76,7 +79,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             editTanda(formData);
             setIsChecked(false);
             setFormData({
-                id: null,
+                local_id: null,
                 number_tanda: '',
                 paraca_1: '',
                 paraca_2: '',
@@ -88,6 +91,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 time: '',
                 combus: '',
                 in_flight: '',
+                is_landing: false
             });
             toast("Tanda editada", {
                 type: "info",
@@ -101,10 +105,10 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 theme: "light"
             });
         } else {
-            formData.id = Math.random().toString(36).substring(0, 7)
+            formData.local_id = Math.random().toString(36).substring(0, 7)
             addTanda(formData);
             setFormData({
-                id: null,
+                local_id: null,
                 number_tanda: '',
                 paraca_1: '',
                 paraca_2: '',
@@ -116,23 +120,13 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 time: '',
                 combus: '',
                 in_flight: '',
+                is_landing: false
             });
             setIsChecked(false);
-            toast("Tanda agregada", {
-                type: "info",
-                autoClose: 2000,
-                position:"top-right",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light"
-            });
         }
         
     }
-
+    
     const handleChange =(e) => {
         setFormData({
             ...formData,
@@ -140,6 +134,12 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         })
     }
 
+    const handleSelect = (name, value) => {
+        setFormData({
+            ...formData,
+            [name]: value,
+        })
+    }
     const handleChecked =(e) => {
         setIsChecked(!isChecked)
         setFormData({
@@ -150,7 +150,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
 
     const handleReset =(e) => {
         setFormData({
-            id: null,
+            local_id: null,
             number_tanda: '',
             paraca_1: '',
             paraca_2: '',
@@ -161,10 +161,17 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             avion: '',
             time: '',
             combus: '',
-            in_flight: ''
+            in_flight: '',
+            is_landing: false
         })
         changeColorOrigin()
     }
+
+    const paracas = [
+        { value: 'formData.paraca_1', label: 'Barri' },
+        { value: 'formData.paraca_1', label: 'Noe' },
+        { value: 'formData.paraca_1', label: 'Ruben' }
+    ]
 
     return <>
     <div className="px-4 xl:w-1/4 pt-4 backdrop-blur">
@@ -173,7 +180,7 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 <div className="card rounded-md">
                     <form className="space-y-3" onSubmit={handleSubmit}>
                         <div className="flex justify-between items-center">
-                            {formData.id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div class=" text-white text-2xl">Nueva Tanda {formData.id}</div>}  
+                            {formData.local_id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div className=" text-white text-2xl">Nueva Tanda {formData.local_id}</div>}  
                             <div className="pl-3">
                                 <label htmlFor="in_flight" className="pr-1 text-white">Despegó?</label>
                                 <input type="checkbox" name="in_flight" checked={isChecked} onChange={handleChecked} value={formData.in_flight}/>
@@ -186,33 +193,35 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                                     <input className="bg-dark w-full text-white" type="number" name="number_tanda" min="1" onChange={handleChange} value={formData.number_tanda}/>
                                 </div>
                             </div>
-                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                                <div className="flex xl:flex-row flex-col">
-                                    <label htmlFor="paraca_1" className="pr-2 text-white">Plaza</label>
-                                    <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
-                                </div>
-                            </div>
+                            <CustomSelect name="paraca_1" onChange={handleSelect} value={formData.paraca_1} placeholder="Slot 1"/>
 
-                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <div className="flex xl:flex-row flex-col">
+                            {/*
+                            <Select 
+                                options={paracas}
+                                onChange={handleChange}
+                                value={formData.paraca_1}
+                                name="paraca_1"
+                                className="basic-single"
+                                classNamePrefix="select"
+                            />
+                                <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
+                                    <div className="flex xl:flex-row flex-col">
+                                        <label htmlFor="paraca_1" className="pr-2 text-white">Plaza</label>
+                                        <CustomSelect />
+                                        <input className="bg-dark w-full text-white" type="text" maxLength="23" name="paraca_1" onChange={handleChange} value={formData.paraca_1}/>
+                                    </div>
+                                </div>
+                            */}
+                                {/*
                                 <label htmlFor="paraca_2" className="pr-2 text-white">Plaza</label>
-                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_2" onChange={handleChange} value={formData.paraca_2}/>
-                            </div>
-                            </div>
+                                <input className="bg-dark w-full text-white" type="text" maxLength="23" name="paraca_2" onChange={handleChange} value={formData.paraca_2}/>
+                                */}
+                            <CustomSelect name="paraca_2" onChange={handleSelect} value={formData.paraca_2} placeholder="Slot 2"/>
 
-                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                            <div className="flex xl:flex-row flex-col">
-                                <label htmlFor="paraca_3" className="pr-2 text-white">Plaza</label>
-                                <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_3" onChange={handleChange} value={formData.paraca_3}/>
-                            </div>
-                            </div>
 
-                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                                <div className="flex xl:flex-row flex-col">
-                                    <label htmlFor="paraca_4" className="pr-2 text-white">Plaza</label>
-                                    <input className="bg-dark w-full text-white" type="text" maxlength="23" name="paraca_4" onChange={handleChange} value={formData.paraca_4}/>
-                                </div>
-                            </div>
+                            <CustomSelect name="paraca_3" onChange={handleSelect} value={formData.paraca_3} placeholder="Slot 3"/>
+
+                            <CustomSelect name="paraca_4" onChange={handleSelect} value={formData.paraca_4} placeholder="Slot 4"/>
 
                             <select name="pilot" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.pilot}>
                                 <option className="text-white">Piloto</option>
@@ -258,8 +267,8 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                             </div>
 
                             <div className="flex justify-end">
-                                <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Guardar"/>
-                                <input class="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Cancelar" onClick={handleReset}/>
+                                <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Guardar"/>
+                                <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Cancelar" onClick={handleReset}/>
                             </div>
                     </form>
                 </div>
