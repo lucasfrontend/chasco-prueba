@@ -2,7 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
   
   * {
     margin: 0;
@@ -25,7 +24,7 @@
     font-family: var(--font-family);
   /*  color: var(--dark-color); */
   /*  background: var(--bg-gradient); */
-    color: white;
+    color: black;
   }
   
   .orb-canvas {

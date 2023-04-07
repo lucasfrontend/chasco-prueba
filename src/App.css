@@ -58,18 +58,18 @@
   }
 
  .chascobg{
-  background-image: url('./assets/chasco-amarillo.png');
-  background-repeat: no-repeat;
-  background-position: center; 
-  min-height: 500px;
-  min-width: 500px;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.2;
-  z-index: -10;
-  overflow: auto;
+    background-image: url('./assets/chasco-amarillo.png');
+    background-repeat: no-repeat;
+    background-position: center; 
+    min-height: 500px;
+    min-width: 500px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+    z-index: -10;
+    overflow: auto;
  }
 
  .pch {
@@ -87,13 +87,13 @@
  }
 
  #eye {
-  width:28px;
-  height:20px;
-  border-radius:50%;
-  background:#ecf0f1;
-  box-shadow:inset 0px 8px 0px #bdc3c7;
-  position:relative;
-  margin:10px auto;
+    width:28px;
+    height:20px;
+    border-radius:50%;
+    background:#ecf0f1;
+    box-shadow:inset 0px 8px 0px #bdc3c7;
+    position:relative;
+    margin:10px auto;
 }
 
 #eye:before
@@ -139,4 +139,8 @@
 .filter-form{
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);                
+}
+
+.ReactScrollableFeed {
+  all: unset;
 }

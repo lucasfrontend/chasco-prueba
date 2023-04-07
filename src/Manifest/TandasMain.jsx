@@ -25,6 +25,8 @@ const TandasMain = () => {
     }, [tandas])
     
 
+    //
+    // 1 -  validar que la tanda no este sin numero
     const addTanda = async (tanda) => {
       console.log("tanda en add", tanda)
       // Guardar en localStorage
@@ -148,7 +150,9 @@ const TandasMain = () => {
             avion: tanda.avion,
             time: tanda.time,
             combus: tanda.combus,
-            in_flight: tanda.in_flight
+            in_flight: tanda.in_flight,
+            isTandem: tanda.isTandem,
+            plane_landed: tanda.plane_landed
           });
           console.log("Tanda actualizada en Firebase");
         } catch (error) {

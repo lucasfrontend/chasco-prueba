@@ -31,33 +31,33 @@ function App() {
                 <Layout />
               </ProtectedRoute>
             }>
-            <Route path='/welcome' element={
-              <ProtectedRoute>
-                <WeatherPanel />
-              </ProtectedRoute>
-            } /> 
-            <Route path='/home' element={
-              <ProtectedRoute>
-                <TandasMain />
-              </ProtectedRoute>
-            } /> 
-            <Route path='/data' element={
-              <ProtectedRoute>
-                <Page404 />
-              </ProtectedRoute>
-            }/>
-            <Route path='/beer' element={
-              <ProtectedRoute>
-                <Beer />
-              </ProtectedRoute>
-            }/>
-            <Route path='/setting' element={
-              <ProtectedRoute>
-                <Setting />
-              </ProtectedRoute>
-            }/>
-              <Route path='*' element={<Page404 />} />
+              <Route path='/welcome' element={
+                <ProtectedRoute>
+                  <WeatherPanel />
+                </ProtectedRoute>
+              } /> 
+              <Route path='/home' element={
+                <ProtectedRoute>
+                  <TandasMain />
+                </ProtectedRoute>
+              } /> 
+              <Route path='/data' element={
+                <ProtectedRoute>
+                  <Page404 />
+                </ProtectedRoute>
+              }/>
+              <Route path='/beer' element={
+                <ProtectedRoute>
+                  <Beer />
+                </ProtectedRoute>
+              }/>
+              <Route path='/setting' element={
+                <ProtectedRoute>
+                  <Setting />
+                </ProtectedRoute>
+              }/>
             </Route>
+            <Route path='*' element={<Page404 />} />
             <Route path='/table' element={<TableScreen2 />}></Route>
             <Route path='/login' element={<Login />} /> 
             <Route path='/register' element={<Register />} /> 

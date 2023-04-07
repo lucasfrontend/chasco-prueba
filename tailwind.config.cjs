@@ -25,7 +25,7 @@ module.exports = {
       'black': '#000000',
 
       'header-tandas': '#EEE',
-      'red': '#ff000035',
+      'red': '#ff0000',
       'green': '#1aa385',
       'blue': '#3e4ec2',
       'blue-cards': '#10122b',
@@ -33,8 +33,10 @@ module.exports = {
       'bg-blue-light2': '#10122b9c',
 
       'verdechasco': '#006732',
+      'amarillochasco': '#d4d43c',
       'celestef': '20f9d4',
-      'rojochasco': ''
+      'rojochasco': '',
+      'blanco-transp': '#FFFFFF90'
     },
     extend: {},
   },
