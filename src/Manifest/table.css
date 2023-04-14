@@ -1,7 +1,18 @@
 @import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
 
+
 #table{
-
     font-family: Inconsolata;
-
+    
 }
+
+.my-td {
+    opacity: 1 !important;
+}
+/*
+font-family: "Roboto", "Helvetica Neue", sans-serif;
+
+tr {
+    height: 80px;
+}
+*/

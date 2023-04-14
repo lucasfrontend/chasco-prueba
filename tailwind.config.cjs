@@ -32,11 +32,16 @@ module.exports = {
       'blue-light': '#10122b5c',
       'bg-blue-light2': '#10122b9c',
 
-      'verdechasco': '#006732',
+      'verdechasco': '#135a01',
       'amarillochasco': '#d4d43c',
       'celestef': '20f9d4',
-      'rojochasco': '',
-      'blanco-transp': '#FFFFFF90'
+      'blanco-transp': '#FFFFFF90',
+      
+      'gr-chasco': '#135a09',
+      'red-chasco': '#c3060f',
+      'bl-chasco': 'rgba(1,1,1,255)',
+      'ye-chasco': 'rgba(233,245,0,255)',
+      'bg-card-form': '#ececec'
     },
     extend: {},
   },

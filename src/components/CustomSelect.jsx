@@ -3,19 +3,12 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from '../firebase'
 //import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
+import paracas from '../json/paracas.json';
 
-const paracas = [
-    { value: 'Barri', label: 'Barri' },
-    { value: 'Noe', label: 'Noe' },
-    { value: 'Ruben', label: 'Ruben' },
-    { value: 'Richi', label: 'Richi' },
-    { value: 'Lucho', label: 'Lucho' },
-    { value: 'Marcos', label: 'Marcos' }
-];
 
 const tandems = [
-    { value: 'Cordoba', label: 'Cordoba', img: ''},
-    { value: 'Ruben', label: 'Ruben' , img: ''},
+    { value: 'Cris', label: 'Cris', img: ''},
+    { value: 'Ruben', label: 'Rubilona' , img: ''},
     { value: 'Richi', label: 'Richi' , img: ''},
     { value: 'Juampi', label: 'Juampi' , img: ''},
     { value: 'Marcos', label: 'Marcos' , img: ''},
@@ -33,8 +26,9 @@ const altitude = [
 
 const pilots = [
     { value: 'Facu', label: 'Facu' },
-    { value: 'Fer L', label: 'Fer L' },
+    { value: 'Fer Lopez', label: 'Fer Lopez' },
     { value: 'Segundo', label: 'Segundo' },
+    { value: 'Martín', label: 'Martín' },
     { value: 'otro', label: 'otro' }
 
 ];
@@ -71,7 +65,6 @@ export const CustomSelect = ({ name, value, onChange, placeholder, optionsType, 
                     ) : <option className="text-white">Aún no hay pilot</option>
                 } 
             */}
-            // Aquí podrías hacer una consulta a la base de datos para obtener las opciones correspondientes a pilotos
             setSelectOptions(pilots);
         } else if (optionsType === 'avion') {
             setSelectOptions(avion);
@@ -94,24 +87,6 @@ export const CustomSelect = ({ name, value, onChange, placeholder, optionsType, 
             }
         })
     };
-      
-
-    //const [ skydiversDB, setSkydiversDB] = useState([])
-
-    /*
-    const getSkydiversDB = async () => {
-        const data = await getDocs(collection( db, "skydivers"))
-        setSkydiversDB(
-            data.docs.map( (doc) => ( {...doc.data(), id: doc.id}))
-        )
-    }
-
-    useEffect(() => {
-        getSkydiversDB()
-        console.log(skydiversDB, "skydiversDB")
-    }, [skydiversDB])
-    */
-    /////////////////////////////////////////////////////
 
     const handleSelectChange = (selectedOption) => {
         if (selectedOption !== null) {
