@@ -4,7 +4,7 @@ import Spinner from "../components/spinner";
 import Tandem from '../assets/tandem.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrashAlt } from '@fortawesome/free-regular-svg-icons'
-import { faArrowUp, faPlaneDeparture, faPlaneArrival, faHashtag, faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faPlaneDeparture, faPlaneArrival, faHashtag, faCheck, faCamera } from '@fortawesome/free-solid-svg-icons';
 //import { collection, getFirestore, getDocs, query, where } from "firebase/firestore";
 //import { db } from '../firebase'
 //import BeerAnimation from './BeerAnimation/BeerAnimation'
@@ -13,6 +13,7 @@ import { faArrowUp, faPlaneDeparture, faPlaneArrival, faHashtag, faCheck } from 
 import Footer from "../components/dumbComponents/Footer";
 import "./arrow.css"
 import "./table.css"
+import Cris from '../assets/tandems/cris.png'
 //import "./TableScreen.css"
 
 
@@ -21,6 +22,7 @@ const TableScreen2 = () => {
     const [forecast, setForecast ] = useState([]);
     const [loading, setLoading ] = useState(true);
     const [show, setShow] = useState(true);
+    const [showSpinner, setShowSpinner ] = useState(true);
 
     const colors = ['text-ye-chasco', 'text-red-chasco', 'text-gr-chasco'];
     //Tandas de LocalStorage    
@@ -39,23 +41,6 @@ const TableScreen2 = () => {
             setTandas(tandas);
         })
     }, []);
-    
-    
-    /*
-    const [ loading, setLoading] = useState(true)
-    const [ debtors, setdebtors ] = useState()
-    useEffect(() => {
-        const db = getFirestore()
-        const queryCollection = collection(db, 'skydivers')
-        const queryFiltered = query(queryCollection, where( 'beers', '>' , 0))
-        getDocs(queryFiltered)
-        .then(data => setdebtors(data.docs.map(paraca => ({ id: paraca.id, ...paraca.data()}) ) ) )
-        .catch(err => console.log(err))
-        .finally(()=> setLoading(false))
-        console.log(debtors, "debtors en tabla")
-    }, [])
-    */
-      
 
     // HORA SUNSET
     const lat = '-35.5404833067820' ;
@@ -87,51 +72,43 @@ const TableScreen2 = () => {
           }
       }, [loading]);
 
-      useEffect(() => {
-        if (loading) {
-            async function fetchData() {
-              try {
-                const response = await fetch(urlForecast);
-                if (response.ok) {
-                  const dog = await response.json();
-                  setForecast(dog);
-                  setLoading(false);
-                } else {
-                  console.log("Hubo un error");
-                  setLoading(true)
-                }
-              } catch (error) {
-                console.log("No pudimos hacer la solicitud para obtener datos");
-                setLoading(true)
-                setShow(false);
-              }
-            }
-            fetchData();
-          }
-      }, [loading]);
-
-
-    //Tandas de FB
-    //const [ tandasDB, setTandasDB] = useState([])
-
-    /*
-    const getTandasDB = async () => {
-        const data = await getDocs(collection( db, "tandas"))
-        setTandasDB(
-            data.docs.map( (doc) => ( {...doc.data(), id: doc.id}))
-        )
-    }
-
-    useEffect(() => {
-        getTandasDB()
-        console.log(tandasDB, "tandasDB")
-    }, [tandasDB])
-    */
-
-
     if(loading === true){
         return <>
-            <div className="">
+            <div className="min-h-screen bg-login-screen ">
+                <div className="p-4">
+                    <div className="rounded-lg shadow-lg overflow-hidden">
+                        <table className="leading-normal w-full border-2 border-bg-bl-chasco">
+                            <thead className="bg-blue text-white shadow-lg">
+                                <div className="">
+                                    <tr className="bg-bl-chasco">
+                                        <th className="px-4 py-3 text-ye-chasco uppercase text-2xl">
+                                            Nro
+                                        </th>
+                                        <th className="w-1/4 px-5 py-3 text-left font-semibold text-2xl text-ye-chasco uppercase">Slot I
+                                        
+                                        </th>
+                                        <th className="w-1/4 px-5 py-3 text-left font-semibold text-2xl text-ye-chasco uppercase">Slot II
+                                            
+                                        </th>
+                                        <th className="w-1/4 px-5 py-3 text-left font-semibold text-2xl text-ye-chasco uppercase">Slot III
+                                        
+                                        </th>
+                                        <th className="w-1/4 px-5 py-3 text-left font-semibold text-2xl text-ye-chasco uppercase">Slot IV
+                                            
+                                        </th>
+                                        <th className="w-1/4 px-5 py-3 font-semibold flex-col items-center text-2xl "></th>
+                                        <th className="w-1/4 px-5 py-3 font-semibold flex-col items-center text-2xl "></th>
+                                        <th className="w-1/4 px-5 py-3 font-semibold flex-col items-center text-2xl "></th>
+                                        <th className="w-1/4 px-5 py-3 font-semibold flex-col items-center text-2xl "></th>
+                                        <th className="w-1/4 px-5 py-3 font-semibold flex-col items-center text-2xl "></th>
+                                        <th class="w-1/4 px-5 py-3 font-semibold flex items-center justify-center h-full text-2xl text-ye-chasco uppercase">Avión</th>
+                                    </tr>
+                                </div >
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
                 <Spinner />
             </div>
         </>
@@ -186,6 +163,7 @@ const TableScreen2 = () => {
                                         return <tr key={index} className="text-black border-b-2 border-black border-bg-bl-chasco" style={{ display: 'flex', justifyContent: 'center', backgroundColor: tanda.plane_landed ? '#5444' : 'transparent', opacity: tanda.plane_landed ? 0.5 : 1 }}>
                                             <td key={index} className="px-4 py-3 text-ye-chasco uppercase" style={{ opacity: tanda.plane_landed ? 0.5 : 1 }}>
                                                 {tanda.number_tanda ? (
+                                                    
                                                     <button className="bg-bl-chasco rounded-md py-2 px-4">
                                                         {/*
                                                         <button className="bg-bl-chasco rounded-md py-2 px-4">
@@ -207,63 +185,63 @@ const TableScreen2 = () => {
                                             </td>
 
                                             <td 
-                                                className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem ? 'text-gr-chasco font-bold' : ''}`} 
+                                                className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem ? 'text-red-chasco font-bold' : ''} ${tanda.is_2AFF || tanda.is_school ? 'text-or-chasco' : ''}`} 
                                                 style={{ 
-                                                    backgroundColor: tanda.is_tandem ? 'white' : 'transparent',
-                                                    borderRadius: tanda.is_tandem ? '0.50rem 0rem 0rem 0.50rem' : 'none',
-                                                    margin: tanda.is_tandem ? '0.5rem 0rem 0.5rem 0rem' : 'none',
+                                                    backgroundColor: tanda.is_school ? "blue" : tanda.is_tandem ? "white" : "transparent",
+                                                    borderRadius: tanda.is_tandem || tanda.is_school ? '0.50rem 0rem 0rem 0.50rem' : 'none',
+                                                    margin: tanda.is_tandem || tanda.is_school ? '0.5rem 0rem 0.5rem 0rem' : 'none',
                                                     opacity: tanda.plane_landed ? 0.5 : 1,
                                                 }}
                                             >
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span>{tanda.paraca_1.charAt(0).toUpperCase() + tanda.paraca_1.slice(1)}</span>
-                                                    {tanda.is_tandem && <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain ml-2" />} 
+                                                    {tanda.is_tandem && <img src={Cris} alt="TDM" className="w-8 h-8 object-contain ml-2" />} 
                                                 </div>
                                             </td>
 
                                             <td 
-                                                className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem ? 'text-red-chasco font-bold' : ''}`} 
+                                                className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem ? 'text-red-chasco font-bold' : ''} ${tanda.is_2AFF || tanda.is_school ? 'text-or-chasco' : ''}`} 
                                                 style={{ 
-                                                    backgroundColor: tanda.is_tandem ? 'white' : 'transparent',
-                                                    borderRadius: tanda.is_tandem ? '0rem 0.50rem 0.50rem 0rem' : 'none',
-                                                    margin: tanda.is_tandem ? '0.5rem 0.5rem 0.5rem 0rem' : 'none',
+                                                    backgroundColor: tanda.is_school ? "blue" : tanda.is_tandem ? "white" : "transparent",
+                                                    borderRadius: tanda.is_cam || tanda.is_2AFF ? '0rem 0rem 0rem 0rem' : (tanda.is_tandem || tanda.is_school ? '0rem 0.50rem 0.50rem 0rem' : 'none'),
+                                                    margin: tanda.is_cam || tanda.is_2AFF ? '0.5rem 0rem 0.5rem 0rem' : (tanda.is_tandem || tanda.is_school ? '0.5rem 0.5rem 0.5rem 0rem' : 'none'),
                                                     opacity: tanda.plane_landed ? 0.5 : 1,
-                                                    
                                                 }}
-                                            >
+                                                >
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span>{tanda.paraca_2.charAt(0).toUpperCase() + tanda.paraca_2.slice(1)}</span>
+                                                    {tanda.is_school && !tanda.is_2AFF ? <span className="text-sm text-xs font-bold text-bl-chasco">Alumno</span> : ''}
                                                     {tanda.is_tandem && <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain ml-2" />} 
                                                 </div>
                                             </td>
 
-
-                                            
                                             <td 
-                                                className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem_2 ? 'text-gr-chasco font-bold' : ''}`} style={{ 
-                                                    backgroundColor: tanda.is_tandem_2 ? 'white' : 'transparent',
-                                                    borderRadius: tanda.is_tandem_2 ? '0.50rem 0rem 0rem 0.50rem' : 'none',
-                                                    margin: tanda.is_tandem_2 ? '0.5rem 0rem 0.5rem 0rem' : 'none',
+                                                className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem_2 || tanda.is_cam ? 'text-red-chasco font-bold' : ''} ${tanda.is_2AFF || tanda.is_school_2 ? 'text-or-chasco' : ''}`}                                                style={{ 
+                                                    backgroundColor: tanda.is_2AFF || tanda.is_school_2 ? "blue" : tanda.is_cam || tanda.is_tandem_2 ? "white" : "transparent",
+                                                    borderRadius: tanda.is_cam || tanda.is_2AFF ? '0rem 0.50rem 0.50rem 0rem' : (tanda.is_tandem_2 || tanda.is_school_2 ? '0.50rem 0rem 0rem 0.50rem' : 'none'),
+                                                    margin: tanda.is_tandem_2 || tanda.is_cam || tanda.is_2AFF || tanda.is_school_2 ? '0.5rem 0rem 0.5rem 0rem' : 'none',
                                                     opacity: tanda.plane_landed ? 0.5 : 1,
                                                 }}>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span>{tanda.paraca_3.charAt(0).toUpperCase() + tanda.paraca_3.slice(1)}</span>
-                                                    {tanda.is_tandem_2 && <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain ml-2" />} 
+                                                    {tanda.is_school && tanda.is_2AFF ? <span className="text-sm text-xs font-bold text-bl-chasco">Alumno</span> : ''}
+                                                    {tanda.is_cam ? <FontAwesomeIcon icon={faCamera} aria-hidden="true" className="text-2xl text-bl-chasco"/> : (tanda.is_tandem_2 ? <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain ml-2" /> : null)}
                                                 </div>
-                                                </td>
+                                            </td>
 
                                                 <td 
-                                                    className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem_2 ? 'text-red-chasco font-bold' : ''}`} 
+                                                    className={`w-1/4 px-5 py-3 text-left font-semibold text-3xl ${tanda.is_tandem_2 ? 'text-red-chasco font-bold' : tanda.is_school_2 ? 'text-or-chasco' : ''}`} 
                                                     style={{ 
-                                                        backgroundColor: tanda.is_tandem_2 ? 'white' : 'transparent',
-                                                        borderRadius: tanda.is_tandem_2 ? '0rem 0.50rem 0.50rem 0rem' : 'none',
-                                                        margin: tanda.is_tandem_2 ? '0.5rem 0rem 0.5rem 0rem' : 'none',
+                                                        backgroundColor: tanda.is_tandem_2 ? 'white' : tanda.is_school_2 ? "blue" : 'transparent',
+                                                        borderRadius: tanda.is_tandem_2 || tanda.is_school_2 ? '0rem 0.50rem 0.50rem 0rem' : 'none',
+                                                        margin: tanda.is_tandem_2 || tanda.is_school_2 ? '0.5rem 0rem 0.5rem 0rem' : 'none',
                                                         opacity: tanda.plane_landed ? 0.5 : 1,
                                                         
                                                     }}
                                                 >
                                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                                     <span>{tanda.paraca_4.charAt(0).toUpperCase() + tanda.paraca_4.slice(1)}</span>
+                                                    {tanda.is_school_2 ? <span className="text-sm text-xs font-bold text-bl-chasco">Alumno</span> : ''}
                                                     {tanda.is_tandem_2 && <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain ml-2" />} 
                                                 </div>
                                             </td>
@@ -313,42 +291,25 @@ const TableScreen2 = () => {
 
                                             </div>
                                             {
-                                                !tanda.open_flight && (
-                                                    tanda.in_flight ? (
-                                                        <td className="font-semibold text-gr-chasco text-2xl p-4">
-                                                            <FontAwesomeIcon icon={faPlaneDeparture} aria-hidden="true" />
-                                                        </td>
-                                                    ) : tanda.plane_landed ? (
-                                                        <td className="font-semibold text-gr-chasco text-2xl p-4 my-td" >
-                                                            <FontAwesomeIcon icon={faCheck} aria-hidden="true"  />
-                                                        </td>
-                                                    ) : (
-                                                        <td className="font-semibold text-black text-2xl p-4 my-td" >
-                                                            <FontAwesomeIcon icon={faHashtag} aria-hidden="true"  />
-                                                            {/*
-                                                            <td className="font-semibold  text-2xl p-4">
-                                                                <div className="upload-btn-container">
-                                                                    <svg
-                                                                        className="upload-arrow"
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="26"
-                                                                        height="26"
-                                                                        viewBox="0 0 16 16"
-                                                                        version="1.1"
-                                                                    >
-                                                                        <path
-                                                                            id="upload-arrow"
-                                                                            d="M6 16l4 0 0-8 6 0 -8-8 -8 8 6 0 0 8Z"
-                                                                            fill="#FF0000"
-                                                                        />
-                                                                    </svg>
-                                                                </div>
-                                                                </td>
-                                                            */}
-                                                        </td>
-                                                    )
+                                                tanda.open_flight ? (
+                                                    <td className="font-semibold text-black text-2xl p-4 my-td">
+                                                    <FontAwesomeIcon icon={faHashtag} aria-hidden="true" />
+                                                    </td>
+                                                ) : tanda.in_flight ? (
+                                                    <td className="font-semibold text-gr-chasco text-2xl p-4">
+                                                    <FontAwesomeIcon icon={faPlaneDeparture} aria-hidden="true" />
+                                                    </td>
+                                                ) : tanda.plane_landed ? (
+                                                    <td className="font-semibold text-gr-chasco text-2xl p-4 my-td" >
+                                                    <FontAwesomeIcon icon={faCheck} aria-hidden="true"  />
+                                                    </td>
+                                                ) : (
+                                                    <td className="font-semibold text-black text-2xl p-4 my-td">
+                                                    <FontAwesomeIcon icon={faHashtag} aria-hidden="true"  />
+                                                    </td>
                                                 )
                                             }
+
     
                                             </tr>
                                         }
@@ -361,7 +322,6 @@ const TableScreen2 = () => {
                     <Footer 
                         show={show}                  
                         weather={weather}
-                        forecast={forecast}
                     />
             </div>
         </div>

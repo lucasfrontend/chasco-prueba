@@ -152,6 +152,7 @@ const TandasMain = () => {
             combus: tanda.combus,
             in_flight: tanda.in_flight,
             isTandem: tanda.isTandem,
+            is_cam: tanda.is_cam,
             plane_landed: tanda.plane_landed
           });
           console.log("Tanda actualizada en Firebase");

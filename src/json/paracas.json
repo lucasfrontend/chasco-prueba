@@ -6,17 +6,20 @@
 
     { "value": "Barri", "label": "Barri" },
     { "value": "Beti", "label": "Beti" },
-
+    { "value": "Bequi", "label": "Bequi" },
 
     { "value": "Campa", "label": "Campa" },
-    { "value": "Cepi", "label": "Cepi" },
     { "value": "Carlos", "label": "Carlos" },
+    { "value": "Cristal", "label": "Cristal" },
+    { "value": "Cepi", "label": "Cepi" },
 
     { "value": "Damián", "label": "Damián" },
-
+    { "value": "Diego H", "label": "Diego H" },
+ 
     { "value": "Cris G", "label": "Cris G" },
 
     { "value": "Fabri", "label": "Fabri" },
+    { "value": "Fer M", "label": "Fer M" },
 
     { "value": "Guido", "label": "Guido" },
 
@@ -24,6 +27,7 @@
     { "value": "Juampi", "label": "Juampi" },
     
     { "value": "Lau", "label": "Lau" },
+    { "value": "Lean", "label": "Lean" },
     { "value": "León", "label": "León" },
     { "value": "Lucho", "label": "Lucho" },  
     { "value": "Luciano", "label": "Luciano" },    

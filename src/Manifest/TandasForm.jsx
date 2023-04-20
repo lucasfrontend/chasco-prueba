@@ -2,10 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { toast } from 'react-toastify';
 import { CustomSelect } from "../components/CustomSelect";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlaneCircleXmark, faPlaneCircleCheck, faPlaneDeparture, faPlaneArrival   } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneCircleXmark, faPlaneSlash, faGraduationCap, faPeopleLine, faPlaneCircleCheck, faPlaneDeparture, faPlaneArrival,faCamera  } from '@fortawesome/free-solid-svg-icons';
 import Tandem from '../assets/tandem.png';
+import goPro from '../assets/gopro.svg'
 
 const TandasForm = ({ addTanda, editTanda, editData }) => {
+
+    //AGREGAR FUNCION TANDEM A TABLAY CODIGO, ICONOCAM
 
     const color = useRef('bg-white shadow-lg rounded-md px-8 py-8 mb-4 ml-auto mr-auto')
 
@@ -14,6 +17,9 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
 
     const [isChecked, setIsChecked] = useState(false);
     const [IsCheckedTandem, setIsCheckedTandem] = useState(false);
+    const [IsCheckedSchool, setIsCheckedSchool] = useState(false);
+    const [IsCheckedSchool2, setIsCheckedSchool2] = useState(false);
+    const [IsChecked2AFF, setIsChecked2AFF] = useState(false);
     const [IsCheckedTandem2, setIsCheckedTandem2] = useState(false);
 
     const [formData, setFormData] = useState({
@@ -31,7 +37,11 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         in_flight: '',
         is_landing: false,
         is_tandem: false,
+        is_cam: false,
         is_tandem_2: false,
+        is_school: false,
+        is_2AFF: false,
+        is_school_2: false,
         plane_landed: false,
         open_flight: true
     })
@@ -48,6 +58,21 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 setIsCheckedTandem(true)
             }else {
                 setIsCheckedTandem(false)
+            }
+            if(editData.is_school === true){
+                setIsCheckedSchool(true)
+            } else {
+                setIsCheckedSchool(false)
+            }
+            if(editData.is_2AFF === true){
+                setIsChecked2AFF(true)
+            } else {
+                setIsChecked2AFF(false)
+            }
+            if(editData.is_school_2 === true){
+                setIsCheckedSchool2(true)
+            } else {
+                setIsCheckedSchool2(false)
             }
             if (editData.is_tandem_2 === true){
                 setIsCheckedTandem2(true)
@@ -72,7 +97,11 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 in_flight: '',
                 is_landing: false,
                 is_tandem: false,
+                is_cam: false,
                 is_tandem_2: false,
+                is_school: false,
+                is_2AFF: false,
+                is_school_2: false,
                 plane_landed: false,
                 open_flight: true
             })
@@ -103,6 +132,9 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             setIsChecked(false);
             setIsCheckedTandem(false);
             setIsCheckedTandem2(false);
+            setIsCheckedSchool(false);
+            setIsCheckedSchool2(false);
+            setIsChecked2AFF(false)
             setFormData({
                 local_id: null,
                 number_tanda: '',
@@ -118,7 +150,11 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 in_flight: '',
                 is_landing: false,
                 is_tandem: false,
+                is_cam: false,
                 is_tandem_2: false,
+                is_school: false,
+                is_2AFF: false,
+                is_school_2: false,
                 plane_landed: false,
                 open_flight: true
             });
@@ -151,13 +187,21 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                 in_flight: '',
                 is_landing: false,
                 is_tandem: false,
+                is_cam: false,
                 is_tandem_2: false,
+                is_school: false,
+                is_2AFF: false,
+                is_school_2: false,
                 plane_landed: false,
                 open_flight: true
             });
             setIsChecked(false);
             setIsCheckedTandem(false)
             setIsCheckedTandem2(false)
+            setIsCheckedSchool(false)
+            setIsCheckedSchool2(false)
+            setIsChecked2AFF(false)
+
         }
         
     }
@@ -199,23 +243,85 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
     };
     
 
-    const handleCheckedTandem =(e) => {
-        setIsCheckedTandem(!IsCheckedTandem)
+    const handleCheckedTandem = (e) => {
+        setIsCheckedTandem(e.target.checked);
+        setIsCheckedSchool(false);
         setFormData({
             ...formData,
             is_tandem: e.target.checked,
-            paraca_1: "", // Limpiamos el valor del primer select
+            is_cam: e.target.checked ? formData.is_cam : false,
+            paraca_1: "",
+            is_school: false,
+            is_2AFF: false
         });
-    }
+    };
+
+
+    const handleCheckedCam =(e) => {
+        setFormData({
+          ...formData,
+          is_cam: e.target.checked,
+          is_tandem_2: false,
+          is_school_2: false
+        });
+        setIsCheckedTandem2(false)
+        setIsCheckedSchool2(false)
+      }
     
     const handleCheckedTandem2 =(e) => {
         setIsCheckedTandem2(!IsCheckedTandem2)
         setFormData({
             ...formData,
             is_tandem_2: e.target.checked,
-            paraca_3: "", // Limpiamos el valor del primer select
         });
+        if (IsCheckedSchool2) {
+            setIsCheckedSchool2(false);
+            setFormData({
+              ...formData,
+              is_school_2: false,
+            });
+        }
     }
+
+    const handleCheckedSchool = (e) => {
+        setIsCheckedSchool(e.target.checked);
+        setIsCheckedTandem(false);
+        setFormData({
+            ...formData,
+            is_school: e.target.checked,
+            is_2AFF: e.target.checked ? formData.is_2AFF : false,
+            is_tandem: false,
+            is_cam: false
+        });
+    };
+
+    const handleCheckedSchool2 = (e) => {
+        setIsCheckedSchool2(!IsCheckedSchool2);
+        setFormData({
+            ...formData,
+            is_school_2: e.target.checked,
+        });
+        if (IsCheckedTandem2) {
+            setIsCheckedTandem2(false);
+            setFormData({
+              ...formData,
+              is_tandem_2: false,
+            });
+        }
+    }
+
+    const handleChecked2AFF = (e) => {
+        setIsChecked2AFF(!IsChecked2AFF);
+        setFormData({
+            ...formData,
+            is_2AFF: e.target.checked,
+            is_tandem_2: false,
+            is_school_2: false
+        });
+        setIsCheckedTandem2(false)
+        setIsCheckedSchool2(false)
+    }
+
 
     const handleSelect = (name, value) => {
         setFormData({
@@ -240,7 +346,11 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
             in_flight: '',
             is_landing: false,
             is_tandem: false,
+            is_cam: false,
             is_tandem_2: false,
+            is_school: false,
+            is_2AFF: false,
+            is_school_2: false,
             plane_landed: false,
             open_flight: true
         })
@@ -251,42 +361,37 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
         <div className="w-full max-w-md mr-auto ml-auto mt-4">
             <div className="bg-white shadow-lg rounded-md px-8 py-8 mb-4 ml-auto mr-auto" ref={color}>
                 <form className="space-y-3" onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-3 items-center">
-                        <div className="text-black text-2xl uppercase mr-3">
+                    <div className="flex justify-between items-center flex-wrap mx-autop">
+                        <div className="text-black text-2xl uppercase mr-3 mb-1">
                             {formData.local_id ? (
                             <p className="text-4xl text-black font-bold">{formData.number_tanda}</p>
                             ) : (
                                 <p>Nueva Tanda {formData.local_id}</p>
                             )}
                         </div>
-                        <div className="flex justify-end items-center col-span-2">
-                            <div className="flex">
-                                <div className="">
-                                    <FontAwesomeIcon
-                                    className={`text-3xl ${formData.open_flight ? "text-gr-chasco" : "text-gray-500"}`}
-                                    icon={formData.open_flight ? faPlaneCircleXmark : faPlaneCircleCheck}
-                                    aria-hidden="true"
-                                    />
-                                    <input type="checkbox" name="open_flight" checked={formData.open_flight} onChange={handleChecked} value={formData.open_flight} style={{ width: "20px", marginLeft: "5px" }} />
-                                </div>
-                                <div className="pr-3">
-                                    <FontAwesomeIcon
-                                        className={`text-3xl ${formData.in_flight ? "text-gr-chasco" : "text-gray-500"}`}
-                                        icon={faPlaneDeparture}
-                                        aria-hidden="true"
-                                    />
-                                    <input type="checkbox" name="in_flight" checked={formData.in_flight} onChange={handleChecked} value={formData.in_flight} style={{ width: "20px", marginLeft: "5px" }} />
-                                </div>
-                                <div className="">
-                                    <FontAwesomeIcon
-                                    className={`text-3xl ${formData.plane_landed ? "text-gr-chasco" : "text-gray-500"}`}
-                                    icon={faPlaneArrival}
-                                    aria-hidden="true"
-                                    />
-                                    <input type="checkbox" name="plane_landed" checked={formData.plane_landed} onChange={handleChecked} value={formData.plane_landed} style={{ width: "20px", marginLeft: "5px" }} />
-                                </div>
+                        <div className="flex flex-col text-right">
+                            <div className="mb-3 inline-flex">
+                                <label className={`h-8 rounded-l py-1 px-2 border-l-2 border-t-2 border-b-2 border-r-1 hover:bg-bl-chasco focus:outline-none cursor-pointer duration-200 transition-all ${formData.open_flight ? 'bg-bl-chasco text-bl-chasco border-2' : 'bg-ye-chasco'}`}>
+                                    <input type="checkbox" name="open_flight" checked={formData.open_flight} onChange={handleChecked} value={formData.open_flight} className="hidden" />
+                                    <span className="text-lg">
+                                        <FontAwesomeIcon icon={faPlaneSlash} style={{fontSize: '0.8rem'}} className={`mb-1 hover:text-ye-chasco ${formData.open_flight ? 'text-ye-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                    </span>
+                                </label>
+                                <label className={`h-8 py-1 px-2 border-2 text-gray-600 hover:bg-bl-chasco focus:outline-none  cursor-pointer duration-200 transition-all ${formData.in_flight ? 'text-bl-chasco border-2 bg-bl-chasco' : 'bg-ye-chasco'}`}>
+                                    <input type="checkbox" name="in_flight" checked={formData.in_flight} onChange={handleChecked} value={formData.in_flight} className="hidden" />
+                                    <span className="text-lg">
+                                        <FontAwesomeIcon icon={faPlaneDeparture} style={{fontSize: '0.8rem'}} className={`mb-1 hover:text-ye-chasco ${formData.in_flight ? 'text-ye-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                    </span>
+                                </label>
+                                <label className={`h-8 rounded-r py-1 px-2 border-r-2 border-t-2 border-b-2 border-l-1 hover:bg-bl-chasco focus:outline-none cursor-pointer duration-200 transition-all ${formData.plane_landed ? 'text-bl-chasco border-2 bg-bl-chasco' : 'bg-ye-chasco'}`}>
+                                    <input type="checkbox" name="plane_landed" checked={formData.plane_landed} onChange={handleChecked} value={formData.plane_landed} className="hidden" />
+                                    <span className="text-lg">
+                                        <FontAwesomeIcon icon={faPlaneArrival} style={{fontSize: '0.8rem'}} className={`mb-1 hover:text-ye-chasco ${formData.plane_landed ? 'text-ye-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                    </span>
+                                </label>
                             </div>
                         </div>
+
                     </div>
 
                     <div className="flex xl:flex-row flex-col rounded-md border border-lightest px-2 mb-2 bg-white" >
@@ -295,33 +400,83 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                         </div>
                     </div>
 
+                    <div class=" flex justify-end items-center">
+                        <label class={`flex items-center h-8 rounded-l py-2 px-4 border-l-2 border-t-2 border-b-2 hover:bg-bl-chasco focus:outline-none cursor-pointer duration-200 transition-all${formData.is_cam === true ? '' : ''} ${formData.is_tandem ? 'bg-bl-chasco text-bl-chasco border-2' : 'bg-ye-chasco'} ${!IsCheckedTandem && !IsCheckedSchool ? 'border-r-2' : ''}` }>
+                            <input type="checkbox" name="open_flight" checked={IsCheckedTandem} onChange={handleCheckedTandem} value={formData.is_tandem} class="hidden" />
+                            <span class="text-lg">
+                                <span className={` mb-1 w-8 h-8 object-contain ${formData.is_tandem ? 'text-ye-chasco' : 'text-bl-chasco'} hover:text-ye-chasco`}>
+                                    TDM
+                                    {/*
+                                <img src={Tandem} alt="TDM" style={{fontSize: '0.8rem'}} className="w-8 h-8 object-contain" />
+                                    */}
+                                </span>
+                            </span>
+                        </label>
 
-                    <div className="flex justify-end items-center">
-                        <div className="pl-3">
-                        <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain" />
-                            <label htmlFor="is_tandem" className="pr-1">Tandem</label>                    
-                            <input type="checkbox" name="is_tandem" checked={IsCheckedTandem} onChange={handleCheckedTandem} value={formData.is_tandem}/>
-                        </div>  
-                    </div> 
 
-                    <CustomSelect className="" name="paraca_1" onChange={handleSelect} value={formData.paraca_1} placeholder="Slot 1" optionsType={formData.is_tandem === true ? "tandems" : "paracas"} isTandem={formData.is_tandem}/>
+                        {IsCheckedTandem ? (
+                            <label class={`flex items-center h-8 py-2 px-4 border-t-2 border-b-2 border-r-2 hover:bg-bl-chasco hover:text-gray-100 focus:outline-none cursor-pointer duration-200 transition-all ${formData.is_cam ? 'bg-bl-chasco text-bl-chasco border-2' : 'bg-ye-chasco'}` }>
+                                <input type="checkbox" name="in_flight" checked={formData.is_cam} onChange={handleCheckedCam} value={formData.is_cam} class="hidden" />
+                                <span class="text-lg">
+                                    <FontAwesomeIcon icon={faCamera} style={{fontSize: '0.8rem'}} className={`mb-1 hover:text-ye-chasco ${formData.is_cam ? 'text-ye-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                </span>
+                            </label>
+                        ) : null}
+
+
+                        {IsCheckedSchool ? (
+                            <label class={`flex items-center h-8 py-2 px-4 border-t-2 border-b-2 border-l-2 hover:bg-bl-chasco hover:text-gray-100 focus:outline-none cursor-pointer duration-200 transition-all ${formData.is_2AFF ? 'bg-bl-chasco text-bl-chasco border-2' : 'bg-ye-chasco'}` }>
+                                <input type="checkbox" name="in_flight" checked={formData.is_2AFF} onChange={handleChecked2AFF} class="hidden" />
+                                <span class="text-lg">
+                                    <FontAwesomeIcon icon={faPeopleLine} style={{fontSize: '0.8rem'}} className={`mb-1 hover:text-ye-chasco ${formData.is_2AFF ? 'text-ye-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                </span>
+                            </label>
+                        ) : null}  
+
+                        <label class={`flex items-center h-8 rounded-r py-2 px-4 border-r-2 border-t-2 border-b-2 border-l-1 hover:bg-bl-chasco focus:outline-none cursor-pointer duration-200 transition-all ${formData.is_school ? 'bg-bl-chasco  border-2' : 'bg-ye-chasco'}` }>
+                            <input type="checkbox" name="is_school" checked={IsCheckedSchool} onChange={handleCheckedSchool} value={formData.is_school} class="hidden" />
+                            <span class={` text-lg w-8 h-8 object-contain ${formData.is_school ? 'text-ye-chasco' : 'text-bl-chasco'} hover:text-ye-chasco`}>ESC
+                                {/*
+                                <FontAwesomeIcon icon={faGraduationCap} style={{fontSize: '0.8rem'}} className={`mb-1 hover:text-ye-chasco ${formData.is_school ? 'text-ye-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                */}
+                            </span>
+                        </label>
+                    </div>
+
+                    <CustomSelect className="" name="paraca_1" onChange={handleSelect} value={formData.paraca_1} placeholder="Slot 1" optionsType={formData.is_tandem ? "tandems" : (formData.is_school ? "instructorsAff" : "paracas")} isTandem={formData.is_tandem} isSchool={formData.is_school}/>
             
-                    <CustomSelect name="paraca_2" onChange={handleSelect} value={formData.paraca_2} placeholder="Slot 2" optionsType="paracas" isTandem={formData.is_tandem} />
+                    <CustomSelect name="paraca_2" onChange={handleSelect} value={formData.paraca_2} placeholder="Slot 2" optionsType={formData.is_2AFF ? "instructorsAff" : "paracas"} isTandem={formData.is_tandem} isSchool={formData.is_school}/>
 
-                    <div className="flex justify-end items-center">
-                        <div className="pl-3">
-                            <label htmlFor="is_tandem_2" className="pr-1">Tandem</label>                    
-                            <input type="checkbox" name="is_tandem_2" checked={IsCheckedTandem2} onChange={handleCheckedTandem2} value={formData.is_tandem_2}/>
-                        </div>  
-                    </div> 
-                    <CustomSelect name="paraca_3" onChange={handleSelect} value={formData.paraca_3} placeholder="Slot 3" optionsType={formData.is_tandem_2 === true ? "tandems" : "paracas"} isTandem={formData.is_tandem_2} />
+                    <div class=" flex justify-end items-center">
+                        {!formData.is_cam  && !formData.is_2AFF && (
+                            <label class="flex items-center h-8 rounded-l py-2 px-4 border-2 border-gray-600 text-gray-600 hover:bg-bl-chasco  focus:outline-none bg-ye-chasco cursor-pointer duration-200 transition-all">
+                                <input type="checkbox" name="is_tandem_2" checked={IsCheckedTandem2} onChange={handleCheckedTandem2} value={formData.is_tandem_2} class="hidden" />
+                                <span class="text-lg">
+                                    <span className={` mb-1 w-8 h-8 object-contain ${formData.is_tandem_2 ? 'text-red-chasco' : 'text-bl-chasco'} hover:text-ye-chasco`}>TDM
+                                    {/*
+                                    <img src={Tandem} alt="TDM" className="w-8 h-8 object-contain" />
+                                    */}
+                                    </span>
+                                </span>
+                            </label>
+                        )}
+  
+                        {(!formData.is_cam  && !formData.is_2AFF) && (
+    
+                            <label class="flex items-center h-8 rounded-r py-2 px-4 border-2 border-l-0 border-gray-600 text-gray-600 hover:bg-bl-chasco hover:text-gray-100 focus:outline-none bg-ye-chasco cursor-pointer duration-200 transition-all">
+                                <input type="checkbox" name="is_school_2" checked={IsCheckedSchool2} onChange={handleCheckedSchool2} value={formData.is_school_2} class="hidden" />
+                                <span class="text-lg">ESC
+                                    {/*
+                                    <FontAwesomeIcon icon={faGraduationCap} className={`mb-1 hover:text-ye-chasco ${formData.is_school_2 ? 'text-gr-chasco' : 'text-bl-chasco'}`} aria-hidden="true" />
+                                    */}
+                                </span>
+                            </label>
+                        )}
+                    </div>
 
-                    <CustomSelect name="paraca_4" onChange={handleSelect} value={formData.paraca_4} placeholder="Slot 4" optionsType="paracas" isTandem={formData.is_tandem_2} className="mb-4"/>
-                    
+                    <CustomSelect name="paraca_3" onChange={handleSelect} value={formData.paraca_3} placeholder="Slot 3" optionsType={formData.is_tandem_2 ? "tandems" : (formData.is_school_2 ? "instructorsAff" : "paracas")} isTandem={formData.is_tandem_2} is_cam={formData.is_cam} isSchool={formData.is_school_2} is_2AFF={formData.is_2AFF}/>
 
-                    <div className="mt-4 mb-8">
-  <hr className="mb-4"/> {/* Agrega un margen inferior aquí */}
-</div>
+                    <CustomSelect name="paraca_4" onChange={handleSelect} value={formData.paraca_4} placeholder="Slot 4" optionsType="paracas" isTandem={formData.is_tandem_2} isSchool={formData.is_school_2} className="mb-4"/>
 
                     <CustomSelect name="pilot" onChange={handleSelect} value={formData.pilot} placeholder="Piloto" optionsType="pilots"/>
 
@@ -337,104 +492,20 @@ const TandasForm = ({ addTanda, editTanda, editData }) => {
                     <CustomSelect name="combus" onChange={handleSelect} value={formData.combus} placeholder="Hace combus?" optionsType="combus"/>
 
                     <div class="mb-6">
-                        <button type="submit" class="bg-gr-chasco hover:bg-indigo-600 shadow-lg text-white font-semibold text-sm py-3 px-0 rounded text-center w-full hover:bg-tertiary duration-200 transition-all uppercase">
+                        <button type="submit" class="bg-ye-chasco hover:bg-bl-chasco hover:text-ye-chasco hover:border-ye-chasco shadow-lg text-bl-chasco font-semibold text-sm py-3 px-0 rounded text-center w-full hover:bg-tertiary duration-200 transition-all uppercase">
                             Guardar
                         </button>
                     </div>
 
                     <div class="mb-6">
-                        <button type="reset" class="bg-red-chasco hover:bg-indigo-600 shadow-lg text-white font-semibold text-sm py-3 px-0 rounded text-center w-full hover:bg-tertiary duration-200 transition-all uppercase" value="Cancelar" onClick={handleReset}>
+                        <button type="reset" class="bg-red-chasco hover:bg-bl-chasco hover:text-ye-chasco hover:border-ye-chasco shadow-lg text-white font-semibold text-sm py-3 px-0 rounded text-center w-full hover:bg-tertiary duration-200 transition-all uppercase" value="Cancelar" onClick={handleReset}>
                             Cancelar
                         </button>
                     </div>
+                    
                 </form>
             </div>
         </div>
-
-{/*
-
-    <div className="px-4 xl:w-1/4 pt-4 backdrop-blur">
-        <div className="text-1xl md:text-1xl lg:text-1xl">
-            <div className="bg-blue-light rounded-md" ref={color}>
-                <div className="card rounded-md">
-                    <form className="space-y-3" onSubmit={handleSubmit}>
-                        <div className="flex justify-between items-center">
-                            {formData.local_id ? <p className="flex justify-center text-4xl">{formData.number_tanda}</p> : <div className=" text-white text-2xl">Nueva Tanda {formData.local_id}</div>}  
-                            <div className="pl-3">
-                                <label htmlFor="in_flight" className="pr-1 text-white">Despegó?</label>
-                                <input type="checkbox" name="in_flight" checked={isChecked} onChange={handleChecked} value={formData.in_flight}/>
-                            </div>                       
-                        </div>
-
-                            <div className="minwww bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                                <div className="flex xl:flex-row flex-col">
-                                    <label htmlFor="number_tanda" className="pr-2 text-white">Número</label>
-                                    <input className="bg-dark w-full text-white" type="number" name="number_tanda" min="1" onChange={handleChange} value={formData.number_tanda}/>
-                                </div>
-                            </div>
-                            <CustomSelect name="paraca_1" onChange={handleSelect} value={formData.paraca_1} placeholder="Slot 1"/>
-            
-                            <CustomSelect name="paraca_2" onChange={handleSelect} value={formData.paraca_2} placeholder="Slot 2"/>
-
-
-                            <CustomSelect name="paraca_3" onChange={handleSelect} value={formData.paraca_3} placeholder="Slot 3"/>
-
-                            <CustomSelect name="paraca_4" onChange={handleSelect} value={formData.paraca_4} placeholder="Slot 4"/>
-
-                            <select name="pilot" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.pilot}>
-                                <option className="text-white">Piloto</option>
-                                {
-                                    pilot_array ? (
-                                        pilot_array.length === 0 ? 
-                                        (<option className="text-white">Aún no hay pilot</option>) 
-                                        : pilot_array.map( el => <option key={el.id}>{ el.name_pilot}</option>)
-                                    ) : <option className="text-white">Aún no hay pilot</option>
-                                } 
-                            </select>
-
-                            <select name="altitude" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.altitude}>
-                                <option className="text-white">Altura</option>
-                                <option className="text-white">5k</option>
-                                <option className="text-white">8k</option>
-                                <option className="text-white">10k</option>
-                                <option className="text-white">12k</option>
-                            </select>
-
-                            <select name="avion" className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow text-white" onChange={handleChange} value={formData.avion}>
-                                <option className="text-white">Avión</option>
-                                <option className="text-white">GRI</option>
-                                <option className="text-white">GYC</option>
-                                <option className="text-white">GSD</option>
-                            </select>
-
-                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                                <div className="flex xl:flex-row flex-col">
-                                    <label htmlFor="time" className="pr-2 text-white">Horario</label>
-                                    <input className="bg-dark w-full text-white" type="time"  name="time" onChange={handleChange} value={formData.time}/>
-                                </div>
-                            </div>
-
-                            <div className="bg-dark p-2 w-full flex flex-col rounded-md dark:bg-gray-800 shadow">
-                                <div className="flex xl:flex-row flex-col">
-                                    <label htmlFor="combus" className="text-white">Combus?</label>
-                                    <select name="combus" className="bg-dark p-2 w-full text-white" onChange={handleChange} value={formData.combus}>
-                                        <option className="text-white">NO</option>
-                                        <option className="text-white">SI</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="flex justify-end">
-                                <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white" type="submit" value="Guardar"/>
-                                <input className="bg-transparent hover:bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow text-white" type="reset" value="Cancelar" onClick={handleReset}/>
-                            </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    */}
     </>
 
 }

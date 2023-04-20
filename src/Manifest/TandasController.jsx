@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef, forwardRef } from "react";
 import ReactScrollableFeed from 'react-scrollable-feed'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare, faTrashAlt } from '@fortawesome/free-regular-svg-icons'
-import { faArrowUp, faPlaneDeparture, faPlaneArrival, faHashtag, faEye,faRectangleXmark } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faPlaneDeparture, faPlaneArrival, faHashtag, faEye,faRectangleXmark, faFileExcel } from '@fortawesome/free-solid-svg-icons';
 import "./arrow.css"
 import "./table.css"
 
@@ -73,11 +73,12 @@ const TandasController = forwardRef(({ tandas, setEditData, deleteTanda, endOfDa
                         <div class="grid gap-6">
                             <div class="card bg-white rounded-md shadow-xs px-5 py-4 cursor-pointer hover:bg-yellow-200">
                                 <a class="font-medium capitalize text-lg" href="#">titulo</a>
+
                                 <DownloadTableExcel
                                     filename="users table"
                                     sheet="users"
                                     currentTableRef={tableRef.current}>
-                                    <button className="bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white"> Export excel </button>
+                                    <button className="bg-active hover:text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-4 text-white"> <FontAwesomeIcon icon={faFileExcel} className="text-white"/> Export excel </button>
                                 </DownloadTableExcel>  
                                 <div class="flex items-center mt-8">
                                     {/*

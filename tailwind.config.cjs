@@ -27,7 +27,7 @@ module.exports = {
       'header-tandas': '#EEE',
       'red': '#ff0000',
       'green': '#1aa385',
-      'blue': '#3e4ec2',
+      'blue': '#000080',
       'blue-cards': '#10122b',
       'blue-light': '#10122b5c',
       'bg-blue-light2': '#10122b9c',
@@ -40,8 +40,9 @@ module.exports = {
       'gr-chasco': '#135a09',
       'red-chasco': '#c3060f',
       'bl-chasco': 'rgba(1,1,1,255)',
-      'ye-chasco': 'rgba(233,245,0,255)',
-      'bg-card-form': '#ececec'
+      'ye-chasco': '#E9D450',
+      'bg-card-form': '#ececec',
+      'or-chasco': '#fbb351'
     },
     extend: {},
   },

@@ -8,11 +8,20 @@ import paracas from '../json/paracas.json';
 
 const tandems = [
     { value: 'Cris', label: 'Cris', img: ''},
+    { value: 'Fabri', label: 'Fabri' , img: ''},
+    { value: 'Juampi', label: 'Juampi' , img: ''},
+    { value: 'Lucho', label: 'L,ucho' , img: ''},
     { value: 'Ruben', label: 'Rubilona' , img: ''},
     { value: 'Richi', label: 'Richi' , img: ''},
-    { value: 'Juampi', label: 'Juampi' , img: ''},
     { value: 'Marcos', label: 'Marcos' , img: ''},
-    { value: 'Fabri', label: 'Fabri' , img: ''}
+
+];
+
+const instructorsAff = [
+    { value: 'Noe', label: 'Noe' },
+    { value: 'Ruben', label: 'Rubilona' },
+    { value: 'Juampi', label: 'Juampi' },
+    { value: 'Richi', label: 'Richi' }
 
 ];
 
@@ -45,7 +54,7 @@ const combus = [
 
 ];
 
-export const CustomSelect = ({ name, value, onChange, placeholder, optionsType, isTandem, isTandem2 }) => {
+export const CustomSelect = ({ name, value, onChange, placeholder, optionsType, isTandem, is_cam, isTandem2, isSchool, is_2AFF }) => {
 
     const [selectOptions, setSelectOptions] = useState(paracas);
 
@@ -72,6 +81,8 @@ export const CustomSelect = ({ name, value, onChange, placeholder, optionsType, 
             setSelectOptions(combus);
         } else if (optionsType === 'tandems') {
             setSelectOptions(tandems);
+        } else if (optionsType === 'instructorsAff') {
+            setSelectOptions(instructorsAff);
         } else {
             setSelectOptions(paracas);
         }
@@ -80,10 +91,10 @@ export const CustomSelect = ({ name, value, onChange, placeholder, optionsType, 
     const customStyles = {
         control: (provided, state) => ({
             ...provided,
-            backgroundColor: isTandem === true || isTandem2 === true ? 'rgba(0,0,255,0.2)' : 'white',
-            borderColor: state.isFocused && isTandem || isTandem2 ? 'rgba(0,0,255,0.3)' : '#ccc',
+            backgroundColor: (isTandem || isTandem2 || is_cam) ? 'rgba(0,0,255,0.2)' : (isSchool || is_2AFF? 'RGB(233, 212, 80, 0.6)' : 'white'),
+            borderColor: state.isFocused && (isTandem || isTandem2 || is_cam) ? 'rgba(0,0,255,0.3)' : '#ccc',
             '&:hover': {
-                backgroundColor: !state.isSelected && isTandem ? 'rgba(0,0,255,0.3)' : 'white'
+                backgroundColor: !state.isSelected && (isTandem || is_cam) ? 'rgba(0,0,255,0.3)' : 'white'
             }
         })
     };

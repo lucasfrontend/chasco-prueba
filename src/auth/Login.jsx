@@ -113,7 +113,7 @@ export function Login(){
 
                 </div>
                 <div className="w-full lg:w-1/2 bg-white rounded-lg lg:rounded-l-none py-24 px-12">
-                    <h3 className="font-bold text-3xl text-red-600 text-center tracking-widest uppercase mb-4 text-blue">ChascoApp</h3>
+                    <h3 className="font-bold text-3xl text-red-600 text-center tracking-widest uppercase mb-4 text-blue">VirtualManifest v2.0.1</h3>
                     <form className="bg-white" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label className="block mb-2 text-sm font-bold text-lightest" htmlFor="email">
@@ -128,7 +128,7 @@ export function Login(){
                             <input type="password" name="password" id="password" className="w-full p-3 text-md border rounded shadow focus:outline-none focus:shadow-outline text-lightest" placeholder="***********" onChange={handleChange}/>
                         </div>
                         <div className="mb-4">
-                            <button className="w-full p-3 font-bold text-white bg-blue rounded-full focus:outline-none" type="submit">
+                            <button className="w-full p-3 font-bold text-ye-chasco bg-bl-chasco hover:bg-ye-chasco hover:text-bl-chasco hover:border-ye-chasco rounded focus:outline-none uppercase mt-4 duration-200 transition-all" type="submit">
                             login
                             </button>
                         </div>

@@ -1,11 +1,16 @@
 import React from "react";
+import moment from 'moment';
 import './spinner.css'
 
 
-const Spinner = () => {
+const Spinner = ({ }) => {
+
+
+    const showText = false
 
     return <>
         <section className="altimeters">
+        {showText && <h1 className="text-bl-chasco sol">SE VA EL SOL EN</h1>}
             <container className="altimeter2">
                 <div className="altimeter" >
                     <input type="hidden" name="clockMinutes" id="clockMinutes" value="21" />
